@@ -208,6 +208,23 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
+      // ハニーポット：ボットが自動入力した場合は送信せず、成功したように見せて処理を終える
+      var honeypot = form.elements['website'];
+      if (honeypot && honeypot.value.trim() !== '') {
+        status.textContent = '送信しました。担当者より折り返しご連絡いたします。';
+        status.classList.add('is-success');
+        form.reset();
+        if (contactModal) {
+          setTimeout(function () {
+            contactModal.hidden = true;
+            document.body.style.overflow = '';
+            status.textContent = '';
+            status.classList.remove('is-success');
+          }, 2200);
+        }
+        return;
+      }
+
       var requiredFields = ['name', 'email', 'message'].map(function (n) { return form.elements[n]; });
       var isValid = requiredFields.reduce(function (acc, field) {
         return validateField(field) && acc;
