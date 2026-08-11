@@ -1,2 +1,6 @@
 [build]
   functions = "netlify/functions"
+
+[functions]
+  external_node_modules = ["@netlify/blobs"]
+  node_bundler = "esbuild"
