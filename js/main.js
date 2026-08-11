@@ -341,10 +341,13 @@
     var label = categoryLabel(categories, post.category);
     var articleUrl = basePath + 'article.html?slug=' + encodeURIComponent(post.slug);
     var categoryUrl = basePath + 'index.html?category=' + encodeURIComponent(post.category);
+    var thumbHTML = post.image
+      ? '<img src="' + escapeHtml(post.image) + '" alt="" class="blog-thumb blog-thumb-img" loading="lazy">'
+      : '<div class="blog-thumb blog-thumb--0' + thumbVariant + '" aria-hidden="true"></div>';
     return (
       '<article class="blog-card" data-category="' + post.category + '">' +
         '<a href="' + articleUrl + '" class="blog-card-link">' +
-          '<div class="blog-thumb blog-thumb--0' + thumbVariant + '" aria-hidden="true"></div>' +
+          thumbHTML +
         '</a>' +
         '<div class="blog-body">' +
           '<div class="blog-meta">' +
@@ -565,6 +568,13 @@
           var el = document.getElementById(item[0]);
           if (el) el.setAttribute(item[1], item[2]);
         });
+
+        if (post.image) {
+          var heroImgEl = document.getElementById('article-hero-bg-img');
+          if (heroImgEl) heroImgEl.setAttribute('src', post.image);
+          var ogImageEl = document.getElementById('article-og-image');
+          if (ogImageEl) ogImageEl.setAttribute('content', 'https://sangmedica.netlify.app' + post.image);
+        }
 
         document.getElementById('article-eyebrow').textContent = slugToEyebrow(post.category);
         document.getElementById('article-title').textContent = post.title;

@@ -1,0 +1,60 @@
+backend:
+  name: github
+  repo: sangmedica/HP-Vlog
+  branch: main
+  base_url: https://sangmedica.netlify.app
+  auth_endpoint: .netlify/functions/auth
+
+# 画像などのアップロード先
+media_folder: "images/blog-uploads"
+public_folder: "/images/blog-uploads"
+
+collections:
+  - name: "blog"
+    label: "ブログ"
+    files:
+      - file: "blog/posts.json"
+        label: "ブログ記事一覧"
+        name: "blog_posts"
+        fields:
+          - label: "カテゴリー定義（新しいカテゴリーを追加する場合はここに1行追加してください）"
+            name: "categories"
+            widget: "list"
+            summary: "{{label}}"
+            fields:
+              - { label: "スラッグ（英数字とハイフン）", name: "slug", widget: "string" }
+              - { label: "表示名", name: "label", widget: "string" }
+
+          - label: "記事"
+            name: "posts"
+            widget: "list"
+            summary: "{{title}}（{{date}}）"
+            fields:
+              - { label: "タイトル", name: "title", widget: "string" }
+              - label: "URL用スラッグ（半角英数字とハイフンのみ／他の記事と重複不可／作成後は変更しない）"
+                name: "slug"
+                widget: "string"
+                pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "半角小文字・数字・ハイフンのみ使用できます"]
+              - label: "抜粋（記事一覧カードに表示される説明文）"
+                name: "excerpt"
+                widget: "text"
+              - label: "公開日"
+                name: "date"
+                widget: "datetime"
+                format: "YYYY-MM-DD"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+              - label: "カテゴリー"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "産業保健", value: "occupational-health" }
+                  - { label: "医療者教育", value: "medical-education" }
+                  - { label: "研修プログラム設計", value: "training-design" }
+              - label: "サムネイル写真（未設定の場合は自動デザインの背景になります）"
+                name: "image"
+                widget: "image"
+                required: false
+              - label: "本文（見出しにしたい行の先頭に「## 」を付け、段落の間は1行空けてください）"
+                name: "body"
+                widget: "text"
