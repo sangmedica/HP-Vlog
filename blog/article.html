@@ -67,8 +67,13 @@
     </div>
     <div class="container">
       <p class="article-back"><a href="index.html">&larr; 記事一覧へ戻る</a></p>
-      <p class="article-eyebrow" id="article-eyebrow">&nbsp;</p>
-      <h1 class="article-title" id="article-title">読み込み中…</h1>
+      <div class="article-title-row">
+        <div>
+          <p class="article-eyebrow" id="article-eyebrow">&nbsp;</p>
+          <h1 class="article-title" id="article-title">読み込み中…</h1>
+        </div>
+        <p class="article-rating-badge" id="article-rating-badge" hidden></p>
+      </div>
       <div class="article-meta">
         <time id="article-date"></time>
         <a href="index.html" class="blog-tag" id="article-category-link">&nbsp;</a>
@@ -82,6 +87,18 @@
       <div class="article-content" id="article-content"></div>
 
       <p class="blog-empty" id="article-not-found" hidden>記事が見つかりませんでした。<a href="index.html">記事一覧へ戻る</a></p>
+
+      <div class="article-rating" id="article-rating">
+        <h3>この記事を評価する</h3>
+        <div class="star-rating" id="star-rating" role="radiogroup" aria-label="5段階評価">
+          <button type="button" class="star-btn" data-value="1" aria-label="星1つ">★</button>
+          <button type="button" class="star-btn" data-value="2" aria-label="星2つ">★</button>
+          <button type="button" class="star-btn" data-value="3" aria-label="星3つ">★</button>
+          <button type="button" class="star-btn" data-value="4" aria-label="星4つ">★</button>
+          <button type="button" class="star-btn" data-value="5" aria-label="星5つ">★</button>
+        </div>
+        <p class="rating-status" id="rating-status" role="status" aria-live="polite"></p>
+      </div>
 
       <div class="article-cta">
         <p>ご相談は、SANGMEDICA株式会社までお気軽にお問い合わせください。</p>

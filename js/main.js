@@ -336,6 +336,35 @@
     }).join('\n');
   }
 
+  /* ---------- Blog ratings ---------- */
+  var RATE_ENDPOINT = '/.netlify/functions/rate';
+
+  function starsForAverage(avg) {
+    var n = Math.max(0, Math.min(5, Math.ceil(avg)));
+    var stars = '';
+    for (var i = 0; i < n; i++) stars += '⭐️';
+    return stars;
+  }
+
+  function populateCardRatings() {
+    var badges = document.querySelectorAll('[data-rating-slug]');
+    if (!badges.length) return;
+    fetch(RATE_ENDPOINT)
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        badges.forEach(function (el) {
+          var slug = el.getAttribute('data-rating-slug');
+          var info = data[slug];
+          if (info && info.count > 0) {
+            el.textContent = starsForAverage(info.average);
+            el.setAttribute('aria-label', '評価 星' + Math.ceil(info.average) + 'つ（' + info.count + '件のレビュー）');
+            el.hidden = false;
+          }
+        });
+      })
+      .catch(function () { /* 評価が取得できなくても記事一覧の表示は継続する */ });
+  }
+
   function buildBlogCardHTML(post, categories, index, basePath) {
     var thumbVariant = (index % 3) + 1;
     var label = categoryLabel(categories, post.category);
@@ -348,6 +377,7 @@
       '<article class="blog-card" data-category="' + post.category + '">' +
         '<a href="' + articleUrl + '" class="blog-card-link">' +
           thumbHTML +
+          '<span class="blog-card-rating" data-rating-slug="' + escapeHtml(post.slug) + '" hidden></span>' +
         '</a>' +
         '<div class="blog-body">' +
           '<div class="blog-meta">' +
@@ -375,6 +405,7 @@
         blogPreviewGrid.innerHTML = sorted.slice(0, 3).map(function (post, i) {
           return buildBlogCardHTML(post, data.categories, i, 'blog/');
         }).join('');
+        populateCardRatings();
       })
       .catch(function () {
         blogPreviewGrid.innerHTML = '<p class="blog-empty">記事を読み込めませんでした。</p>';
@@ -398,6 +429,7 @@
     blogListGrid.innerHTML = sorted.map(function (post, i) {
       return buildBlogCardHTML(post, categories, i, '');
     }).join('');
+    populateCardRatings();
 
     var blogKeywordInput = document.getElementById('blog-search-keyword');
     var blogClearButton = document.getElementById('blog-search-clear');
@@ -588,11 +620,83 @@
         catLink.setAttribute('href', 'index.html?category=' + encodeURIComponent(post.category));
 
         articleContentEl.innerHTML = renderMarkdown(post.body);
+
+        setupArticleRating(post.slug);
       })
       .catch(function () {
         document.getElementById('article-title').textContent = '記事を読み込めませんでした';
         var notFoundEl = document.getElementById('article-not-found');
         if (notFoundEl) { notFoundEl.hidden = false; notFoundEl.textContent = '時間をおいて再度お試しください。'; }
       });
+  }
+
+  function setupArticleRating(slug) {
+    var widget = document.getElementById('star-rating');
+    var statusEl = document.getElementById('rating-status');
+    var badgeEl = document.getElementById('article-rating-badge');
+    if (!widget) return;
+
+    var buttons = Array.prototype.slice.call(widget.querySelectorAll('.star-btn'));
+    var storageKey = 'sangmedica_rated_' + slug;
+    var alreadyRatedValue = null;
+    try { alreadyRatedValue = localStorage.getItem(storageKey); } catch (e) { /* プライベートブラウズ等でlocalStorageが使えない場合は無視 */ }
+
+    function renderAverage(avg, count) {
+      if (!badgeEl) return;
+      if (count > 0) {
+        badgeEl.textContent = starsForAverage(avg) + '（' + count + '件）';
+        badgeEl.hidden = false;
+      } else {
+        badgeEl.hidden = true;
+      }
+    }
+
+    function paintStars(value) {
+      buttons.forEach(function (btn) {
+        var v = Number(btn.getAttribute('data-value'));
+        btn.classList.toggle('is-active', v <= value);
+      });
+    }
+
+    fetch(RATE_ENDPOINT + '?slug=' + encodeURIComponent(slug))
+      .then(function (res) { return res.json(); })
+      .then(function (data) { renderAverage(data.average, data.count); })
+      .catch(function () { /* 平均評価が取得できなくても記事表示は継続する */ });
+
+    if (alreadyRatedValue) {
+      paintStars(Number(alreadyRatedValue));
+      buttons.forEach(function (btn) { btn.disabled = true; });
+      statusEl.textContent = 'すでに評価済みです（★' + alreadyRatedValue + '）。ご協力ありがとうございました。';
+      return;
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('mouseenter', function () { paintStars(Number(btn.getAttribute('data-value'))); });
+      btn.addEventListener('mouseleave', function () { paintStars(0); });
+      btn.addEventListener('focus', function () { paintStars(Number(btn.getAttribute('data-value'))); });
+
+      btn.addEventListener('click', function () {
+        var value = Number(btn.getAttribute('data-value'));
+        buttons.forEach(function (b) { b.disabled = true; });
+        statusEl.textContent = '送信しています…';
+
+        fetch(RATE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ slug: slug, rating: value })
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            try { localStorage.setItem(storageKey, String(value)); } catch (e) { /* 保存できなくても評価自体は完了している */ }
+            paintStars(value);
+            statusEl.textContent = 'ご評価ありがとうございました（★' + value + '）。';
+            renderAverage(data.average, data.count);
+          })
+          .catch(function () {
+            statusEl.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+            buttons.forEach(function (b) { b.disabled = false; });
+          });
+      });
+    });
   }
 })();
