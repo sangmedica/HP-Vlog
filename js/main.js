@@ -532,9 +532,22 @@
           return;
         }
 
-        document.title = post.title + ' | SANGMEDICA株式会社';
+        var fullTitle = post.title + ' | SANGMEDICA株式会社';
+        document.title = fullTitle;
         var descMeta = document.getElementById('article-doc-description');
         if (descMeta) descMeta.setAttribute('content', post.excerpt);
+
+        var articleUrlAbs = 'https://sangmedica.netlify.app/blog/article.html?slug=' + encodeURIComponent(post.slug);
+        [
+          ['article-og-url', 'content', articleUrlAbs],
+          ['article-og-title', 'content', fullTitle],
+          ['article-og-description', 'content', post.excerpt],
+          ['article-twitter-title', 'content', fullTitle],
+          ['article-twitter-description', 'content', post.excerpt]
+        ].forEach(function (item) {
+          var el = document.getElementById(item[0]);
+          if (el) el.setAttribute(item[1], item[2]);
+        });
 
         document.getElementById('article-eyebrow').textContent = slugToEyebrow(post.category);
         document.getElementById('article-title').textContent = post.title;
