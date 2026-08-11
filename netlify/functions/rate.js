@@ -2,6 +2,19 @@ const { getStore } = require('@netlify/blobs');
 
 const STORE_NAME = 'blog-ratings';
 
+function getRatingsStore() {
+  // 自動設定されたBlobs実行コンテキストが見つからない環境向けに、
+  // サイトIDとアクセストークンを使った手動設定にフォールバックする
+  if (process.env.NETLIFY_SITE_ID && process.env.NETLIFY_BLOBS_TOKEN) {
+    return getStore({
+      name: STORE_NAME,
+      siteID: process.env.NETLIFY_SITE_ID,
+      token: process.env.NETLIFY_BLOBS_TOKEN
+    });
+  }
+  return getStore(STORE_NAME);
+}
+
 function jsonResponse(statusCode, obj) {
   return {
     statusCode: statusCode,
@@ -25,7 +38,7 @@ exports.handler = async (event) => {
     return jsonResponse(200, {});
   }
 
-  const store = getStore(STORE_NAME);
+  const store = getRatingsStore();
 
   if (event.httpMethod === 'GET') {
     const slug = event.queryStringParameters && event.queryStringParameters.slug;
