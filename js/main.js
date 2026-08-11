@@ -336,6 +336,17 @@
     }).join('\n');
   }
 
+  /* ---------- Blog view counts ---------- */
+  var VIEWS_ENDPOINT = '/.netlify/functions/views';
+
+  function recordArticleView(slug) {
+    fetch(VIEWS_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug: slug })
+    }).catch(function () { /* 閲覧数の記録に失敗しても記事表示自体には影響させない */ });
+  }
+
   /* ---------- Blog ratings ---------- */
   var RATE_ENDPOINT = '/.netlify/functions/rate';
 
@@ -622,6 +633,7 @@
         articleContentEl.innerHTML = renderMarkdown(post.body);
 
         setupArticleRating(post.slug);
+        recordArticleView(post.slug);
       })
       .catch(function () {
         document.getElementById('article-title').textContent = '記事を読み込めませんでした';
