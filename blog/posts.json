@@ -1,0 +1,17 @@
+{
+  "categories": [
+    {
+      "slug": "occupational-health",
+      "label": "産業保健"
+    },
+    {
+      "slug": "medical-education",
+      "label": "医療者教育"
+    },
+    {
+      "slug": "training-design",
+      "label": "研修プログラム設計"
+    }
+  ],
+  "posts": []
+}

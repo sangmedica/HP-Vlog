@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブログ記事一覧 | SANGMEDICA株式会社</title>
+<meta name="description" content="SANGMEDICA株式会社が発信する、医療者教育・産業保健・研修プログラム設計に関する知見やコラムの一覧です。">
+<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/icon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/icon-180.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&amp;family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- ===================== Header ===================== -->
+<header class="site-header is-scrolled" id="site-header">
+  <div class="container header-inner">
+    <a href="../index.html#top" class="logo">
+      <img src="../images/rogo-web.png" alt="" class="logo-mark">
+      SANGMEDICA<span>.</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="../index.html#about" class="nav-link">会社概要</a></li>
+        <li><a href="../index.html#business" class="nav-link">事業紹介</a></li>
+        <li><a href="../representative.html" class="nav-link">代表者紹介</a></li>
+        <li><a href="index.html" class="nav-link is-active">ブログ</a></li>
+        <li><a href="../index.html#contact" class="nav-link">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-overlay" id="nav-overlay"></div>
+</header>
+
+<main>
+  <!-- ===================== Blog List Hero ===================== -->
+  <section class="article-hero" style="padding-bottom: 56px;">
+    <div class="article-hero-bg" aria-hidden="true">
+      <img src="../images/bg-blog.jpg" alt="" class="article-hero-bg-img">
+      <div class="article-hero-bg-overlay"></div>
+    </div>
+    <div class="container">
+      <p class="article-eyebrow">BLOG</p>
+      <h1 class="article-title" style="margin-bottom: 0;">記事一覧</h1>
+    </div>
+  </section>
+
+  <!-- ===================== Blog List ===================== -->
+  <section class="section blog" style="padding-top: 72px;">
+    <div class="container">
+
+      <div class="blog-layout">
+        <div class="blog-layout-search">
+          <div class="blog-search">
+            <div class="blog-search-row">
+              <div class="blog-search-field blog-search-field--keyword">
+                <label for="blog-search-keyword">キーワード検索</label>
+                <input type="text" id="blog-search-keyword" placeholder="記事タイトル・本文・タグで検索">
+              </div>
+              <div class="blog-search-actions">
+                <button type="button" class="btn btn-outline-dark" id="blog-search-clear">条件をクリア</button>
+              </div>
+            </div>
+            <p class="blog-search-status" id="blog-search-status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="blog-layout-main">
+          <p class="blog-empty" id="blog-empty" hidden>該当する記事が見つかりませんでした。</p>
+
+          <div class="blog-grid" id="blog-grid">
+            <p class="blog-empty">記事を読み込んでいます…</p>
+          </div>
+        </div>
+
+        <div class="blog-layout-calendar">
+          <div class="blog-calendar" id="blog-calendar">
+            <div class="blog-calendar-header">
+              <button type="button" class="blog-calendar-nav" id="blog-calendar-prev" aria-label="前の月へ">&lsaquo;</button>
+              <p class="blog-calendar-title" id="blog-calendar-title"></p>
+              <button type="button" class="blog-calendar-nav" id="blog-calendar-next" aria-label="次の月へ">&rsaquo;</button>
+            </div>
+            <div class="blog-calendar-weekdays">
+              <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+            </div>
+            <div class="blog-calendar-grid" id="blog-calendar-grid"></div>
+            <p class="blog-calendar-legend"><span class="blog-calendar-legend-dot" aria-hidden="true"></span>記事が公開された日付です。クリックすると記事に移動します。</p>
+          </div>
+        </div>
+
+        <div class="blog-layout-categories">
+          <div class="blog-categories" id="blog-categories">
+            <p class="blog-categories-label">カテゴリー</p>
+            <a href="index.html?category=all" class="blog-category-pill" data-category="all">すべて</a>
+            <a href="index.html?category=occupational-health" class="blog-category-pill" data-category="occupational-health">産業保健</a>
+            <a href="index.html?category=medical-education" class="blog-category-pill" data-category="medical-education">医療者教育</a>
+            <a href="index.html?category=training-design" class="blog-category-pill" data-category="training-design">研修プログラム設計</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== Footer ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="../index.html#top" class="logo logo--footer">
+      <img src="../images/rogo-web.png" alt="" class="logo-mark">
+      SANGMEDICA<span>.</span>
+    </a>
+
+    <nav class="footer-nav">
+      <a href="../index.html#about">会社概要</a>
+      <a href="../index.html#business">事業紹介</a>
+      <a href="../representative.html">代表者紹介</a>
+      <a href="index.html">ブログ</a>
+      <a href="../index.html#contact">お問い合わせ</a>
+    </nav>
+
+    <p class="footer-copy">&copy; 2026 SANGMEDICA株式会社 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="ページトップへ戻る">↑</button>
+
+<!-- ===================== QR Code Modal ===================== -->
+<div class="qr-modal" id="qr-modal" hidden>
+  <div class="qr-modal-backdrop" data-qr-close></div>
+  <div class="qr-modal-panel" role="dialog" aria-modal="true" aria-labelledby="qr-modal-label">
+    <button type="button" class="qr-modal-close" data-qr-close aria-label="閉じる">&times;</button>
+    <img src="" alt="" class="qr-modal-image" id="qr-modal-image">
+    <p class="qr-modal-label" id="qr-modal-label"></p>
+    <a href="" class="btn btn-outline-dark" id="qr-modal-link" target="_blank" rel="noopener">リンクを開く</a>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
