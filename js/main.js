@@ -423,16 +423,17 @@
       });
   }
 
-  /* ---------- Blog listing page (新着 / 閲覧数ランキング + keyword/category search + calendar) ---------- */
+  /* ---------- Blog listing page (評価ランキング / 閲覧数ランキング + keyword/category search + calendar) ---------- */
   var blogListGridLatest = document.getElementById('blog-grid-latest');
   var blogListGridPopular = document.getElementById('blog-grid-popular');
   if (blogListGridLatest && blogListGridPopular && document.getElementById('blog-search-keyword')) {
     Promise.all([
       fetch(getPostsJsonUrl()).then(function (res) { return res.json(); }),
-      fetch(VIEWS_ENDPOINT).then(function (res) { return res.json(); }).catch(function () { return {}; })
+      fetch(VIEWS_ENDPOINT).then(function (res) { return res.json(); }).catch(function () { return {}; }),
+      fetch(RATE_ENDPOINT).then(function (res) { return res.json(); }).catch(function () { return {}; })
     ])
       .then(function (results) {
-        initBlogListing(results[0].posts, results[0].categories, results[1] || {});
+        initBlogListing(results[0].posts, results[0].categories, results[1] || {}, results[2] || {});
       })
       .catch(function () {
         var emptyEl = document.getElementById('blog-empty');
@@ -440,10 +441,18 @@
       });
   }
 
-  function initBlogListing(posts, categories, viewsData) {
+  function initBlogListing(posts, categories, viewsData, ratingsData) {
     var sorted = posts.slice().sort(function (a, b) { return b.date.localeCompare(a.date); });
 
-    var latestPosts = sorted.slice(0, 3);
+    var ratingPosts = posts.slice().sort(function (a, b) {
+      var ratingA = ratingsData[a.slug] ? Math.round(ratingsData[a.slug].average * 100) / 100 : 0;
+      var ratingB = ratingsData[b.slug] ? Math.round(ratingsData[b.slug].average * 100) / 100 : 0;
+      if (ratingB !== ratingA) return ratingB - ratingA;
+      var countA = ratingsData[a.slug] ? ratingsData[a.slug].count : 0;
+      var countB = ratingsData[b.slug] ? ratingsData[b.slug].count : 0;
+      if (countB !== countA) return countB - countA;
+      return b.date.localeCompare(a.date);
+    }).slice(0, 3);
     var popularPosts = posts.slice().sort(function (a, b) {
       var viewsA = viewsData[a.slug] || 0;
       var viewsB = viewsData[b.slug] || 0;
@@ -451,8 +460,8 @@
       return b.date.localeCompare(a.date);
     }).slice(0, 3);
 
-    blogListGridLatest.innerHTML = latestPosts.length
-      ? latestPosts.map(function (post, i) { return buildBlogCardHTML(post, categories, i, ''); }).join('')
+    blogListGridLatest.innerHTML = ratingPosts.length
+      ? ratingPosts.map(function (post, i) { return buildBlogCardHTML(post, categories, i, ''); }).join('')
       : '<p class="blog-empty">近日公開予定です。</p>';
 
     blogListGridPopular.innerHTML = popularPosts.length
