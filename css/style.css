@@ -812,6 +812,21 @@ body {
   position: relative;
   z-index: 1;
 }
+.blog .section-eyebrow,
+.blog .section-desc,
+.blog .blog-empty {
+  color: var(--color-gray-900);
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.7);
+}
+.blog .sns-promo--home .sns-trigger-caption {
+  color: var(--color-gray-900);
+  border-color: rgba(38, 38, 38, 0.35);
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.7);
+}
+.blog .sns-promo--home .sns-trigger:hover .sns-trigger-caption {
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+}
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
