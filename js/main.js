@@ -360,20 +360,35 @@
   function populateCardRatings() {
     var badges = document.querySelectorAll('[data-rating-slug]');
     if (!badges.length) return;
-    fetch(RATE_ENDPOINT)
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
+    Promise.all([
+      fetch(RATE_ENDPOINT).then(function (res) { return res.json(); }).catch(function () { return {}; }),
+      fetch(VIEWS_ENDPOINT).then(function (res) { return res.json(); }).catch(function () { return {}; })
+    ])
+      .then(function (results) {
+        var ratings = results[0] || {};
+        var views = results[1] || {};
         badges.forEach(function (el) {
           var slug = el.getAttribute('data-rating-slug');
-          var info = data[slug];
-          if (info && info.count > 0) {
-            el.textContent = starsForAverage(info.average);
-            el.setAttribute('aria-label', '評価 星' + Math.ceil(info.average) + 'つ（' + info.count + '件のレビュー）');
-            el.hidden = false;
+          var info = ratings[slug];
+          var viewCount = views[slug] || 0;
+          var hasRating = info && info.count > 0;
+          if (!hasRating && viewCount === 0) return;
+
+          var textParts = [];
+          var ariaParts = [];
+          if (hasRating) {
+            textParts.push(starsForAverage(info.average));
+            ariaParts.push('評価 星' + Math.ceil(info.average) + 'つ（' + info.count + '件のレビュー）');
           }
+          textParts.push(viewCount + '回閲覧');
+          ariaParts.push(viewCount + '回閲覧');
+
+          el.textContent = textParts.join(' ・ ');
+          el.setAttribute('aria-label', ariaParts.join('、'));
+          el.hidden = false;
         });
       })
-      .catch(function () { /* 評価が取得できなくても記事一覧の表示は継続する */ });
+      .catch(function () { /* 評価・閲覧数が取得できなくても記事一覧の表示は継続する */ });
   }
 
   function buildBlogCardHTML(post, categories, index, basePath, showLatestBadge) {
