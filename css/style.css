@@ -340,8 +340,8 @@ body {
 .about-bg {
   position: sticky;
   top: 0;
-  height: 100vh;
-  margin-bottom: -60vh;
+  height: calc(100vh + 1300px);
+  margin-bottom: 0;
   z-index: 0;
 }
 .about-bg-img {
