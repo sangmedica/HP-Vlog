@@ -167,25 +167,6 @@
   window.addEventListener('scroll', updateActiveLink, { passive: true });
   updateActiveLink();
 
-  /* ---------- About section scroll reveal (背景写真が薄まりコンテンツが現れる演出) ---------- */
-  var aboutSection = document.getElementById('about');
-  var aboutOverlay = document.getElementById('about-bg-overlay');
-  var aboutBg = aboutSection ? aboutSection.querySelector('.about-bg') : null;
-  var aboutBgImg = aboutSection ? aboutSection.querySelector('.about-bg-img') : null;
-  if (aboutSection && aboutOverlay && aboutBg && window.matchMedia('(min-width: 721px)').matches) {
-    var updateAboutReveal = function () {
-      var rect = aboutSection.getBoundingClientRect();
-      var total = aboutBg.offsetHeight; /* pinned image's own scroll-through distance */
-      var progress = (-rect.top) / total;
-      progress = Math.max(0, Math.min(1, progress));
-      aboutOverlay.style.opacity = (0.1 + progress * 0.85).toFixed(3);
-      if (aboutBgImg) aboutBgImg.style.filter = 'blur(' + (progress * 6).toFixed(1) + 'px)';
-    };
-    window.addEventListener('scroll', updateAboutReveal, { passive: true });
-    window.addEventListener('resize', updateAboutReveal);
-    updateAboutReveal();
-  }
-
   /* ---------- Contact form: validation + Web3Forms submission ---------- */
   // https://web3forms.com で sangmedica@gmail.com を登録して取得したアクセスキーに置き換えてください。
   var WEB3FORMS_ACCESS_KEY = '39dffe79-0949-4f21-9d7a-34a161423b03';
