@@ -332,14 +332,16 @@ body {
   font-size: 0.95rem;
 }
 
-/* ---------- About ---------- */
+/* ---------- About (scroll reveal) ---------- */
 .about {
   position: relative;
   overflow: hidden;
 }
 .about-bg {
-  position: absolute;
-  inset: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  margin-bottom: -60vh;
   z-index: 0;
 }
 .about-bg-img {
@@ -348,15 +350,26 @@ body {
   object-fit: cover;
   object-position: center;
   display: block;
+  transition: filter 0.05s linear;
 }
 .about-bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--color-white);
+  opacity: 0.15;
 }
 .about > .container {
   position: relative;
   z-index: 1;
+  background: var(--color-white);
+  padding-top: 96px;
+}
+
+@media (max-width: 720px) {
+  .about-bg { position: absolute; inset: 0; height: auto; margin-bottom: 0; }
+  .about-bg-overlay { opacity: 0.8 !important; }
+  .about-bg-img { filter: none !important; }
+  .about > .container { padding-top: 0; background: transparent; }
 }
 .about-grid {
   display: grid;
