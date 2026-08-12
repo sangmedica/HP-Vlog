@@ -890,20 +890,30 @@ body {
   color: var(--color-white);
 }
 
-/* ---------- Blog list page layout (記事一覧 / カレンダー / カテゴリー) ---------- */
+/* ---------- Blog list page layout (新着 / 閲覧数ランキング / 検索・カレンダー・カテゴリー) ---------- */
 .blog-layout {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr 0.82fr;
   grid-template-rows: auto auto auto;
-  column-gap: 48px;
+  column-gap: 40px;
   row-gap: 32px;
 }
 .blog-layout-search { grid-column: 1 / -1; grid-row: 1; }
-.blog-layout-main { grid-column: 1; grid-row: 2 / span 2; }
-.blog-layout-calendar { grid-column: 2; grid-row: 2; }
-.blog-layout-categories { grid-column: 2; grid-row: 3; }
+.blog-layout-latest { grid-column: 1; grid-row: 2 / span 2; }
+.blog-layout-popular { grid-column: 2; grid-row: 2 / span 2; }
+.blog-layout-calendar { grid-column: 3; grid-row: 2; }
+.blog-layout-categories { grid-column: 3; grid-row: 3; }
 
-.blog-layout-main .blog-grid { grid-template-columns: repeat(2, 1fr); }
+.blog-col-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.blog-layout-latest .blog-grid,
+.blog-layout-popular .blog-grid { grid-template-columns: 1fr; }
 
 /* ---------- Blog calendar ---------- */
 .blog-calendar {
@@ -1045,10 +1055,10 @@ body {
 @media (max-width: 720px) {
   .blog-layout { grid-template-columns: 1fr; row-gap: 40px; }
   .blog-layout-search,
-  .blog-layout-main,
+  .blog-layout-latest,
+  .blog-layout-popular,
   .blog-layout-calendar,
   .blog-layout-categories { grid-column: 1; grid-row: auto; }
-  .blog-layout-main .blog-grid { grid-template-columns: 1fr; }
   .blog-categories { flex-direction: row; flex-wrap: wrap; width: 100%; }
   .blog-categories-label { width: 100%; }
 

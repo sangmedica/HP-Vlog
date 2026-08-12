@@ -423,30 +423,51 @@
       });
   }
 
-  /* ---------- Blog listing page (render + keyword/category search + calendar) ---------- */
-  var blogListGrid = document.getElementById('blog-grid');
-  if (blogListGrid && document.getElementById('blog-search-keyword')) {
-    fetch(getPostsJsonUrl())
-      .then(function (res) { return res.json(); })
-      .then(function (data) { initBlogListing(data.posts, data.categories); })
+  /* ---------- Blog listing page (新着 / 閲覧数ランキング + keyword/category search + calendar) ---------- */
+  var blogListGridLatest = document.getElementById('blog-grid-latest');
+  var blogListGridPopular = document.getElementById('blog-grid-popular');
+  if (blogListGridLatest && blogListGridPopular && document.getElementById('blog-search-keyword')) {
+    Promise.all([
+      fetch(getPostsJsonUrl()).then(function (res) { return res.json(); }),
+      fetch(VIEWS_ENDPOINT).then(function (res) { return res.json(); }).catch(function () { return {}; })
+    ])
+      .then(function (results) {
+        initBlogListing(results[0].posts, results[0].categories, results[1] || {});
+      })
       .catch(function () {
         var emptyEl = document.getElementById('blog-empty');
         if (emptyEl) { emptyEl.hidden = false; emptyEl.textContent = '記事データを読み込めませんでした。'; }
       });
   }
 
-  function initBlogListing(posts, categories) {
+  function initBlogListing(posts, categories, viewsData) {
     var sorted = posts.slice().sort(function (a, b) { return b.date.localeCompare(a.date); });
-    blogListGrid.innerHTML = sorted.map(function (post, i) {
-      return buildBlogCardHTML(post, categories, i, '');
-    }).join('');
+
+    var latestPosts = sorted.slice(0, 3);
+    var popularPosts = posts.slice().sort(function (a, b) {
+      var viewsA = viewsData[a.slug] || 0;
+      var viewsB = viewsData[b.slug] || 0;
+      if (viewsB !== viewsA) return viewsB - viewsA;
+      return b.date.localeCompare(a.date);
+    }).slice(0, 3);
+
+    blogListGridLatest.innerHTML = latestPosts.length
+      ? latestPosts.map(function (post, i) { return buildBlogCardHTML(post, categories, i, ''); }).join('')
+      : '<p class="blog-empty">近日公開予定です。</p>';
+
+    blogListGridPopular.innerHTML = popularPosts.length
+      ? popularPosts.map(function (post, i) { return buildBlogCardHTML(post, categories, i, ''); }).join('')
+      : '<p class="blog-empty">近日公開予定です。</p>';
+
     populateCardRatings();
 
     var blogKeywordInput = document.getElementById('blog-search-keyword');
     var blogClearButton = document.getElementById('blog-search-clear');
     var blogSearchStatus = document.getElementById('blog-search-status');
     var blogEmptyEl = document.getElementById('blog-empty');
-    var blogCards = Array.prototype.slice.call(blogListGrid.querySelectorAll('.blog-card'));
+    var blogCards = Array.prototype.slice.call(
+      document.querySelectorAll('#blog-grid-latest .blog-card, #blog-grid-popular .blog-card')
+    );
     var blogCategoryPills = Array.prototype.slice.call(document.querySelectorAll('.blog-category-pill'));
 
     var urlParams = new URLSearchParams(window.location.search);
@@ -474,7 +495,7 @@
         if (isVisible) visibleCount++;
       });
 
-      if (blogEmptyEl) blogEmptyEl.hidden = visibleCount !== 0;
+      if (blogEmptyEl) blogEmptyEl.hidden = sorted.length === 0 || visibleCount !== 0;
 
       if (blogSearchStatus) {
         var parts = [];
