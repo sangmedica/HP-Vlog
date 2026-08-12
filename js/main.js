@@ -376,7 +376,7 @@
       .catch(function () { /* 評価が取得できなくても記事一覧の表示は継続する */ });
   }
 
-  function buildBlogCardHTML(post, categories, index, basePath) {
+  function buildBlogCardHTML(post, categories, index, basePath, showLatestBadge) {
     var thumbVariant = (index % 3) + 1;
     var label = categoryLabel(categories, post.category);
     var articleUrl = basePath + 'article.html?slug=' + encodeURIComponent(post.slug);
@@ -384,10 +384,12 @@
     var thumbHTML = post.image
       ? '<img src="' + escapeHtml(post.image) + '" alt="" class="blog-thumb blog-thumb-img" loading="lazy">'
       : '<div class="blog-thumb blog-thumb--0' + thumbVariant + '" aria-hidden="true"></div>';
+    var latestBadgeHTML = showLatestBadge ? '<span class="blog-card-badge">最新記事</span>' : '';
     return (
       '<article class="blog-card" data-category="' + post.category + '">' +
         '<a href="' + articleUrl + '" class="blog-card-link">' +
           thumbHTML +
+          latestBadgeHTML +
           '<span class="blog-card-rating" data-rating-slug="' + escapeHtml(post.slug) + '" hidden></span>' +
         '</a>' +
         '<div class="blog-body">' +
@@ -414,7 +416,7 @@
           return;
         }
         blogPreviewGrid.innerHTML = sorted.slice(0, 3).map(function (post, i) {
-          return buildBlogCardHTML(post, data.categories, i, 'blog/');
+          return buildBlogCardHTML(post, data.categories, i, 'blog/', true);
         }).join('');
         populateCardRatings();
       })
