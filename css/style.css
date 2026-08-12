@@ -787,6 +787,31 @@ body {
 }
 
 /* ---------- Blog ---------- */
+.blog {
+  position: relative;
+  overflow: hidden;
+}
+.blog-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.blog-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.blog-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+.blog > .container {
+  position: relative;
+  z-index: 1;
+}
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
