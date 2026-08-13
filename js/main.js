@@ -422,9 +422,31 @@
   /* ---------- News section on homepage (最新20件) ---------- */
   var newsListEl = document.getElementById('news-list');
   if (newsListEl) {
-    fetch('news/news.json')
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
+    var NEWS_CATEGORY_PALETTE = [
+      { bg: '#eef2ff', text: '#4338ca' },
+      { bg: '#fef3c7', text: '#92400e' },
+      { bg: '#dcfce7', text: '#166534' },
+      { bg: '#fee2e2', text: '#991b1b' },
+      { bg: '#e0f2fe', text: '#075985' },
+      { bg: '#f3e8ff', text: '#6b21a8' }
+    ];
+
+    function newsCategoryColor(slug) {
+      var hash = 0;
+      for (var i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
+      return NEWS_CATEGORY_PALETTE[hash % NEWS_CATEGORY_PALETTE.length];
+    }
+
+    Promise.all([
+      fetch('news/news.json').then(function (res) { return res.json(); }),
+      fetch('news/categories.json').then(function (res) { return res.json(); }).catch(function () { return { categories: [] }; })
+    ])
+      .then(function (results) {
+        var data = results[0];
+        var categories = (results[1] && results[1].categories) || [];
+        var categoryLabels = {};
+        categories.forEach(function (c) { categoryLabels[c.slug] = c.label; });
+
         var items = (data.items || [])
           .slice()
           .sort(function (a, b) { return b.date.localeCompare(a.date); })
@@ -436,9 +458,16 @@
         }
 
         newsListEl.innerHTML = items.map(function (item) {
+          var categoryHTML = '';
+          if (item.category && categoryLabels[item.category]) {
+            var color = newsCategoryColor(item.category);
+            categoryHTML = '<span class="news-category" style="background:' + color.bg + ';color:' + color.text + ';">' +
+              escapeHtml(categoryLabels[item.category]) + '</span>';
+          }
           return (
             '<div class="news-item">' +
               '<time datetime="' + item.date + '">' + formatDateDots(item.date) + '</time>' +
+              categoryHTML +
               '<p>' + escapeHtml(item.title) + '</p>' +
             '</div>'
           );

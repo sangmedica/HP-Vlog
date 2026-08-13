@@ -13,6 +13,18 @@ collections:
   - name: "news"
     label: "News"
     files:
+      - file: "news/categories.json"
+        label: "Newsカテゴリー一覧"
+        name: "news_categories"
+        fields:
+          - label: "カテゴリー（新しいカテゴリーを追加する場合はここに1行追加してください。追加するとNews記事のカテゴリー選択肢にすぐ反映されます）"
+            name: "categories"
+            widget: "list"
+            summary: "{{label}}"
+            fields:
+              - { label: "スラッグ（英数字とハイフン、他のカテゴリーと重複不可）", name: "slug", widget: "string" }
+              - { label: "表示名", name: "label", widget: "string" }
+
       - file: "news/news.json"
         label: "News一覧"
         name: "news_items"
@@ -22,13 +34,22 @@ collections:
             widget: "list"
             summary: "{{date}}　{{title}}"
             fields:
-              - { label: "タイトル", name: "title", widget: "string" }
               - label: "日付"
                 name: "date"
                 widget: "datetime"
                 format: "YYYY-MM-DD"
                 date_format: "YYYY-MM-DD"
                 time_format: false
+              - label: "カテゴリー（未設定も可。新しいカテゴリーは上の「Newsカテゴリー一覧」から追加してください）"
+                name: "category"
+                widget: "relation"
+                collection: "news"
+                file: "news_categories"
+                search_fields: ["categories.*.label"]
+                value_field: "categories.*.slug"
+                display_fields: ["categories.*.label"]
+                required: false
+              - { label: "タイトル（本文）", name: "title", widget: "string" }
 
   - name: "blog"
     label: "ブログ"
