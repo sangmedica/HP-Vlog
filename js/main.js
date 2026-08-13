@@ -145,7 +145,7 @@
   });
 
   /* ---------- Active nav link on scroll ---------- */
-  var sections = ['about', 'business', 'blog', 'contact']
+  var sections = ['news', 'about', 'business', 'blog', 'contact']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
 
@@ -417,6 +417,45 @@
         '</div>' +
       '</article>'
     );
+  }
+
+  /* ---------- News section on homepage (最新20件) ---------- */
+  var newsListEl = document.getElementById('news-list');
+  if (newsListEl) {
+    fetch('news/news.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        var items = (data.items || [])
+          .slice()
+          .sort(function (a, b) { return b.date.localeCompare(a.date); })
+          .slice(0, 20);
+
+        if (items.length === 0) {
+          newsListEl.innerHTML = '<p class="blog-empty">近日公開予定です。</p>';
+          return;
+        }
+
+        newsListEl.innerHTML = items.map(function (item) {
+          return (
+            '<div class="news-item">' +
+              '<time datetime="' + item.date + '">' + formatDateDots(item.date) + '</time>' +
+              '<p>' + escapeHtml(item.title) + '</p>' +
+            '</div>'
+          );
+        }).join('');
+
+        // 1画面に5件表示し、残りはインナースクロールで閲覧できるようにする
+        var rows = newsListEl.querySelectorAll('.news-item');
+        if (rows.length > 5) {
+          var visibleHeight = 0;
+          for (var i = 0; i < 5; i++) { visibleHeight += rows[i].offsetHeight; }
+          newsListEl.style.maxHeight = visibleHeight + 'px';
+          newsListEl.classList.add('news-list--scroll');
+        }
+      })
+      .catch(function () {
+        newsListEl.innerHTML = '<p class="blog-empty">お知らせを読み込めませんでした。</p>';
+      });
   }
 
   /* ---------- Homepage blog preview (latest 3 posts) ---------- */

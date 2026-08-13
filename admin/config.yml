@@ -10,6 +10,26 @@ media_folder: "images/blog-uploads"
 public_folder: "/images/blog-uploads"
 
 collections:
+  - name: "news"
+    label: "News"
+    files:
+      - file: "news/news.json"
+        label: "News一覧"
+        name: "news_items"
+        fields:
+          - label: "お知らせ（新しいものを追加する場合はここにリストを1件追加してください。表示は自動的に日付の新しい順・最大20件になります）"
+            name: "items"
+            widget: "list"
+            summary: "{{date}}　{{title}}"
+            fields:
+              - { label: "タイトル", name: "title", widget: "string" }
+              - label: "日付"
+                name: "date"
+                widget: "datetime"
+                format: "YYYY-MM-DD"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+
   - name: "blog"
     label: "ブログ"
     files:
