@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /danh-muc-thuoc/
 
 Sitemap: https://sangmedica.netlify.app/sitemap.xml
