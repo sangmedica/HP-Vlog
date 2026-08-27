@@ -96,7 +96,7 @@ collections:
                 name: "image"
                 widget: "image"
                 required: false
-              - label: "動画（任意／スマホ撮影などの動画ファイルを添付できます。mp4推奨、50MB程度までを目安にしてください）"
+              - label: "動画（任意／スマホ撮影などの動画ファイルを添付できます。mp4推奨、100MBまで。GitHubの上限が100MBのため、安全のため90MB程度までに収めてください）"
                 name: "video"
                 widget: "file"
                 media_folder: "/media/blog-video-uploads"

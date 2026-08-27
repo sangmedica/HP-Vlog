@@ -8,5 +8,63 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // 動画ファイルの容量チェック：90MBを超える動画が添付されていたら公開前に警告する
+    (function () {
+      var MAX_VIDEO_BYTES = 90 * 1024 * 1024; // 90MB
+
+      function checkVideoSize(url) {
+        return fetch(url, { method: 'HEAD' })
+          .then(function (res) {
+            var len = res.headers.get('content-length');
+            if (!len) return null;
+            return parseInt(len, 10);
+          })
+          .catch(function () { return null; });
+      }
+
+      function collectVideoPaths(entry) {
+        var paths = [];
+        try {
+          var posts = entry.getIn(['data', 'posts']);
+          if (posts && typeof posts.forEach === 'function') {
+            posts.forEach(function (post) {
+              var v = post.get ? post.get('video') : post.video;
+              if (v) paths.push(v);
+            });
+          }
+        } catch (e) { /* 構造が想定と違っても公開は止めない */ }
+        return paths;
+      }
+
+      if (window.CMS && typeof window.CMS.registerEventListener === 'function') {
+        window.CMS.registerEventListener({
+          name: 'prePublish',
+          handler: function (args) {
+            var entry = args && args.entry;
+            if (!entry) return;
+            var paths = collectVideoPaths(entry);
+            if (!paths.length) return;
+
+            return Promise.all(
+              paths.map(function (path) {
+                var url = window.location.origin + path;
+                return checkVideoSize(url).then(function (bytes) {
+                  if (bytes && bytes > MAX_VIDEO_BYTES) {
+                    window.alert(
+                      '添付されている動画（' + path + '）の容量が約' +
+                      Math.round(bytes / 1024 / 1024) +
+                      'MBあり、目安の90MBを超えています。\n' +
+                      '公開自体は続行できますが、容量の小さい動画への差し替えをおすすめします。'
+                    );
+                  }
+                });
+              })
+            );
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
