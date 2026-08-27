@@ -96,6 +96,12 @@ collections:
                 name: "image"
                 widget: "image"
                 required: false
+              - label: "動画（任意／スマホ撮影などの動画ファイルを添付できます。mp4推奨、50MB程度までを目安にしてください）"
+                name: "video"
+                widget: "file"
+                media_folder: "/media/blog-video-uploads"
+                public_folder: "/media/blog-video-uploads"
+                required: false
               - label: "本文（見出しにしたい行の先頭に「## 」を付け、段落の間は1行空けてください）"
                 name: "body"
                 widget: "text"

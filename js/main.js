@@ -734,6 +734,16 @@
           if (ogImageEl) ogImageEl.setAttribute('content', 'https://sangmedica.netlify.app' + post.image);
         }
 
+        if (post.video) {
+          var videoWrapEl = document.getElementById('article-video');
+          var videoEl = document.getElementById('article-video-el');
+          if (videoWrapEl && videoEl) {
+            videoEl.setAttribute('src', post.video);
+            if (post.image) videoEl.setAttribute('poster', post.image);
+            videoWrapEl.hidden = false;
+          }
+        }
+
         document.getElementById('article-eyebrow').textContent = slugToEyebrow(post.category);
         document.getElementById('article-title').textContent = post.title;
 
