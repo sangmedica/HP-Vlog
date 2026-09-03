@@ -492,10 +492,12 @@ body {
   border-color: var(--color-white);
 }
 
-/* Instagram紹介カード */
+/* SNS紹介カード */
 .sns-promo {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 64px;
   padding: 32px;
   background: var(--color-off-white);
   border-radius: 4px;
