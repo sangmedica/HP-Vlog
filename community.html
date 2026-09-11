@@ -76,7 +76,31 @@
           <a href="" id="community-notion-link" class="btn btn-outline-dark" target="_blank" rel="noopener">Notionページを開く</a>
         </div>
 
+        <div class="community-ranking" id="community-ranking" hidden>
+          <h2>アクセスランキング TOP5</h2>
+          <div class="community-ranking-list" id="community-ranking-list"></div>
+        </div>
+
         <h2 class="community-apps-title">作成したアプリ紹介</h2>
+
+        <div class="blog-search">
+          <div class="blog-search-row">
+            <div class="blog-search-field blog-search-field--keyword">
+              <label for="community-search-keyword">キーワード検索</label>
+              <input type="text" id="community-search-keyword" placeholder="アプリ名・説明文で検索">
+            </div>
+            <div class="blog-search-actions">
+              <button type="button" class="btn btn-outline-dark" id="community-search-clear">条件をクリア</button>
+            </div>
+          </div>
+          <p class="blog-search-status" id="community-search-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="blog-categories" id="community-categories">
+          <p class="blog-categories-label">カテゴリー</p>
+        </div>
+
+        <p class="blog-empty" id="community-apps-empty" hidden>該当するアプリが見つかりませんでした。</p>
         <div class="community-apps" id="community-apps"></div>
       </div>
     </div>

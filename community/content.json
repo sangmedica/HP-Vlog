@@ -2,7 +2,9 @@
   "notionUrl": "",
   "apps": [
     {
+      "slug": "sample-app",
       "title": "サンプルアプリ",
+      "category": "",
       "url": "",
       "video": "",
       "description": "ここに紹介文を入力してください。管理画面（/admin/）の「コミュニティページ」から編集・追加できます。"

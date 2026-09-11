@@ -838,6 +838,8 @@
   }
 
   /* ---------- Community page (password gate) ---------- */
+  var COMMUNITY_VIEWS_ENDPOINT = '/.netlify/functions/community-views';
+
   var communityForm = document.getElementById('community-form');
   if (communityForm) {
     var communityPasswordInput = document.getElementById('community-password');
@@ -846,29 +848,89 @@
     var communityContent = document.getElementById('community-content');
     var communitySubmitBtn = communityForm.querySelector('button[type="submit"]');
 
-    function renderCommunityContent(data) {
-      var appsGrid = document.getElementById('community-apps');
-      if (appsGrid) {
-        var apps = data.apps || [];
-        appsGrid.innerHTML = apps.length
-          ? apps.map(function (app) {
-              var videoHtml = app.video
-                ? '<video controls playsinline preload="metadata" src="' + escapeHtml(app.video) + '"></video>'
-                : '';
-              var linkHtml = app.url
-                ? '<a href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener" class="btn btn-outline-dark">アプリを開く</a>'
-                : '';
-              return (
-                '<article class="community-app-card">' +
-                  videoHtml +
-                  '<h3>' + escapeHtml(app.title || '') + '</h3>' +
-                  (app.description ? '<p>' + escapeHtml(app.description) + '</p>' : '') +
-                  linkHtml +
-                '</article>'
-              );
-            }).join('')
-          : '<p class="blog-empty">現在紹介中のアプリはありません。</p>';
+    function buildCommunityAppCardHTML(app, viewsData) {
+      var count = viewsData[app.slug] || 0;
+      var videoHtml = app.video
+        ? '<video controls playsinline preload="metadata" src="' + escapeHtml(app.video) + '"></video>'
+        : '';
+      var catHtml = app.category
+        ? '<a href="javascript:void(0)" class="blog-tag community-app-category" data-category="' + escapeHtml(app.category) + '">' + escapeHtml(app.category) + '</a>'
+        : '';
+      var linkHtml = app.url
+        ? '<a href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener" class="btn btn-outline-dark community-app-link" data-app-slug="' + escapeHtml(app.slug || '') + '">アプリを開く</a>'
+        : '';
+      return (
+        '<article class="community-app-card" data-category="' + escapeHtml(app.category || '') + '" data-slug="' + escapeHtml(app.slug || '') + '">' +
+          videoHtml +
+          '<div class="community-app-meta">' + catHtml + '<span class="community-app-views">' + count + '回アクセス</span></div>' +
+          '<h3>' + escapeHtml(app.title || '') + '</h3>' +
+          (app.description ? '<p>' + escapeHtml(app.description) + '</p>' : '') +
+          linkHtml +
+        '</article>'
+      );
+    }
+
+    function setupCommunityFilter() {
+      var keywordInput = document.getElementById('community-search-keyword');
+      var clearBtn = document.getElementById('community-search-clear');
+      var statusEl = document.getElementById('community-search-status');
+      var emptyEl = document.getElementById('community-apps-empty');
+      var categoryPills = Array.prototype.slice.call(document.querySelectorAll('#community-categories .blog-category-pill'));
+      var cards = Array.prototype.slice.call(document.querySelectorAll('#community-apps .community-app-card'));
+      var activeCategory = 'all';
+
+      function setActiveCategory(category) {
+        activeCategory = category;
+        categoryPills.forEach(function (p) {
+          p.classList.toggle('is-active', p.getAttribute('data-category') === category);
+        });
+        applyFilter();
       }
+
+      function applyFilter() {
+        var keyword = (keywordInput.value || '').trim().toLowerCase();
+        var visibleCount = 0;
+        cards.forEach(function (card) {
+          var text = card.textContent.toLowerCase();
+          var matchesKeyword = !keyword || text.indexOf(keyword) !== -1;
+          var matchesCategory = activeCategory === 'all' || card.getAttribute('data-category') === activeCategory;
+          var visible = matchesKeyword && matchesCategory;
+          card.style.display = visible ? '' : 'none';
+          if (visible) visibleCount++;
+        });
+        if (emptyEl) emptyEl.hidden = visibleCount !== 0;
+        if (statusEl) {
+          statusEl.textContent = (keyword || activeCategory !== 'all')
+            ? visibleCount + '件のアプリが見つかりました。'
+            : '';
+        }
+      }
+
+      categoryPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          setActiveCategory(pill.getAttribute('data-category'));
+        });
+      });
+
+      document.querySelectorAll('#community-apps .community-app-category').forEach(function (tag) {
+        tag.addEventListener('click', function () {
+          setActiveCategory(tag.getAttribute('data-category'));
+        });
+      });
+
+      if (keywordInput) keywordInput.addEventListener('input', applyFilter);
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          keywordInput.value = '';
+          setActiveCategory('all');
+        });
+      }
+
+      applyFilter();
+    }
+
+    function renderCommunityContent(data) {
+      var apps = data.apps || [];
 
       var notionWrap = document.getElementById('community-notion');
       var notionLink = document.getElementById('community-notion-link');
@@ -876,6 +938,69 @@
         notionLink.setAttribute('href', data.notionUrl);
         notionWrap.hidden = false;
       }
+
+      var categories = [];
+      apps.forEach(function (app) {
+        var c = (app.category || '').trim();
+        if (c && categories.indexOf(c) === -1) categories.push(c);
+      });
+
+      var categoriesEl = document.getElementById('community-categories');
+      if (categoriesEl) {
+        var pillsHtml = '<p class="blog-categories-label">カテゴリー</p>' +
+          '<button type="button" class="blog-category-pill is-active" data-category="all">すべて</button>' +
+          categories.map(function (c) {
+            return '<button type="button" class="blog-category-pill" data-category="' + escapeHtml(c) + '">' + escapeHtml(c) + '</button>';
+          }).join('');
+        categoriesEl.innerHTML = pillsHtml;
+      }
+
+      fetch(COMMUNITY_VIEWS_ENDPOINT)
+        .then(function (res) { return res.json(); })
+        .catch(function () { return {}; })
+        .then(function (viewsData) {
+          viewsData = viewsData || {};
+
+          var appsGrid = document.getElementById('community-apps');
+          if (appsGrid) {
+            appsGrid.innerHTML = apps.length
+              ? apps.map(function (app) { return buildCommunityAppCardHTML(app, viewsData); }).join('')
+              : '<p class="blog-empty">現在紹介中のアプリはありません。</p>';
+          }
+
+          var rankingWrap = document.getElementById('community-ranking');
+          var rankingList = document.getElementById('community-ranking-list');
+          var ranked = apps.slice()
+            .filter(function (a) { return (viewsData[a.slug] || 0) > 0; })
+            .sort(function (a, b) { return (viewsData[b.slug] || 0) - (viewsData[a.slug] || 0); })
+            .slice(0, 5);
+          if (rankingWrap && rankingList && ranked.length) {
+            rankingList.innerHTML = ranked.map(function (app, i) {
+              return (
+                '<div class="community-ranking-item">' +
+                  '<span class="community-ranking-num">' + (i + 1) + '</span>' +
+                  '<span class="community-ranking-title">' + escapeHtml(app.title || '') + '</span>' +
+                  '<span class="community-ranking-count">' + (viewsData[app.slug] || 0) + '回</span>' +
+                '</div>'
+              );
+            }).join('');
+            rankingWrap.hidden = false;
+          }
+
+          document.querySelectorAll('#community-apps .community-app-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+              var slug = link.getAttribute('data-app-slug');
+              if (!slug) return;
+              fetch(COMMUNITY_VIEWS_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ slug: slug })
+              }).catch(function () { /* 記録に失敗してもアプリ遷移自体には影響させない */ });
+            });
+          });
+
+          setupCommunityFilter();
+        });
     }
 
     communityForm.addEventListener('submit', function (e) {
