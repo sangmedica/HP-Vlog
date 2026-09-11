@@ -6,7 +6,7 @@
       "title": "漢方診療ナビ",
       "category": "医療系",
       "url": "https://kampo-shinryo-navi.netlify.app",
-      "video": "",
+      "video": "/media/community-video-uploads/kampo-shinryo-navi-guide.mp4",
       "description": "疾患・症候を選び、患者の証（虚実・寒熱・気血水）や身体所見をクリックで選択していくと、該当する漢方処方の候補と根拠・出典を提示する臨床推論の学習アプリです。"
     }
   ]
