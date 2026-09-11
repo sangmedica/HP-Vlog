@@ -836,4 +836,77 @@
       });
     });
   }
+
+  /* ---------- Community page (password gate) ---------- */
+  var communityForm = document.getElementById('community-form');
+  if (communityForm) {
+    var communityPasswordInput = document.getElementById('community-password');
+    var communityError = document.getElementById('community-error');
+    var communityGate = document.getElementById('community-gate');
+    var communityContent = document.getElementById('community-content');
+    var communitySubmitBtn = communityForm.querySelector('button[type="submit"]');
+
+    function renderCommunityContent(data) {
+      var appsGrid = document.getElementById('community-apps');
+      if (appsGrid) {
+        var apps = data.apps || [];
+        appsGrid.innerHTML = apps.length
+          ? apps.map(function (app) {
+              var videoHtml = app.video
+                ? '<video controls playsinline preload="metadata" src="' + escapeHtml(app.video) + '"></video>'
+                : '';
+              var linkHtml = app.url
+                ? '<a href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener" class="btn btn-outline-dark">アプリを開く</a>'
+                : '';
+              return (
+                '<article class="community-app-card">' +
+                  videoHtml +
+                  '<h3>' + escapeHtml(app.title || '') + '</h3>' +
+                  (app.description ? '<p>' + escapeHtml(app.description) + '</p>' : '') +
+                  linkHtml +
+                '</article>'
+              );
+            }).join('')
+          : '<p class="blog-empty">現在紹介中のアプリはありません。</p>';
+      }
+
+      var notionWrap = document.getElementById('community-notion');
+      var notionLink = document.getElementById('community-notion-link');
+      if (notionWrap && notionLink && data.notionUrl) {
+        notionLink.setAttribute('href', data.notionUrl);
+        notionWrap.hidden = false;
+      }
+    }
+
+    communityForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var password = communityPasswordInput.value;
+      if (!password) return;
+
+      communityError.textContent = '';
+      if (communitySubmitBtn) communitySubmitBtn.disabled = true;
+
+      fetch('/.netlify/functions/community', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: password })
+      })
+        .then(function (res) {
+          if (res.status === 401) throw new Error('パスワードが正しくありません。');
+          if (!res.ok) throw new Error('エラーが発生しました。時間をおいて再度お試しください。');
+          return res.json();
+        })
+        .then(function (data) {
+          renderCommunityContent(data);
+          communityGate.hidden = true;
+          communityContent.hidden = false;
+        })
+        .catch(function (err) {
+          communityError.textContent = err.message;
+        })
+        .finally(function () {
+          if (communitySubmitBtn) communitySubmitBtn.disabled = false;
+        });
+    });
+  }
 })();

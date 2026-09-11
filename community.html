@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANGMEDICAコミュニティ | SANGMEDICA株式会社</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/icon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/icon-180.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&amp;family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+
+<!-- ===================== Header ===================== -->
+<header class="site-header is-scrolled" id="site-header">
+  <div class="container header-inner">
+    <a href="index.html#top" class="logo">
+      <img src="images/rogo-web.png" alt="" class="logo-mark">
+      SANGMEDICA<span>.</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html#news" class="nav-link">News</a></li>
+        <li><a href="index.html#about" class="nav-link">会社概要</a></li>
+        <li><a href="index.html#business" class="nav-link">事業紹介</a></li>
+        <li><a href="representative.html" class="nav-link">代表者紹介</a></li>
+        <li><a href="blog/index.html" class="nav-link">ブログ</a></li>
+        <li><a href="index.html#contact" class="nav-link">お問い合わせ</a></li>
+        <li><a href="community.html" class="nav-link is-active">SANGMEDICAコミュニティ</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-overlay" id="nav-overlay"></div>
+</header>
+
+<main id="main-content">
+  <!-- ===================== Community Hero ===================== -->
+  <section class="article-hero">
+    <div class="container">
+      <p class="article-eyebrow">COMMUNITY</p>
+      <h1 class="article-title" style="margin-bottom: 0;">SANGMEDICAコミュニティ</h1>
+    </div>
+  </section>
+
+  <!-- ===================== Password Gate ===================== -->
+  <section class="article-body">
+    <div class="container">
+      <div class="community-gate" id="community-gate">
+        <p class="community-gate-lead">SANGMEDICAの趣旨にご賛同いただいた方向けのページです。パスワードをご存じの方のみお進みください。</p>
+        <form id="community-form" class="community-gate-form" novalidate>
+          <label for="community-password" class="community-gate-label">パスワード</label>
+          <input type="password" id="community-password" name="community-password" autocomplete="off" required>
+          <button type="submit" class="btn btn-primary">開く</button>
+        </form>
+        <p class="community-gate-error" id="community-error" role="alert" aria-live="assertive"></p>
+      </div>
+
+      <div class="community-content" id="community-content" hidden>
+        <div class="community-notion" id="community-notion" hidden>
+          <h2>Notion（閲覧専用）</h2>
+          <p>これまでの活動記録・メモを閲覧いただけます（編集はできません）。</p>
+          <a href="" id="community-notion-link" class="btn btn-outline-dark" target="_blank" rel="noopener">Notionページを開く</a>
+        </div>
+
+        <h2 class="community-apps-title">作成したアプリ紹介</h2>
+        <div class="community-apps" id="community-apps"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== Footer ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html#top" class="logo logo--footer">
+      <img src="images/rogo-web.png" alt="" class="logo-mark">
+      SANGMEDICA<span>.</span>
+    </a>
+
+    <nav class="footer-nav">
+      <a href="index.html#news">News</a>
+      <a href="index.html#about">会社概要</a>
+      <a href="index.html#business">事業紹介</a>
+      <a href="representative.html">代表者紹介</a>
+      <a href="blog/index.html">ブログ</a>
+      <a href="index.html#contact">お問い合わせ</a>
+    </nav>
+
+    <p class="footer-copy">&copy; 2026 SANGMEDICA株式会社 All Rights Reserved. ／ <a href="privacy.html" style="text-decoration: underline;">プライバシーポリシー</a></p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="ページトップへ戻る">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
