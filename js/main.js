@@ -727,6 +727,31 @@
           if (el) el.setAttribute(item[1], item[2]);
         });
 
+        var canonicalEl = document.getElementById('article-canonical');
+        if (canonicalEl) canonicalEl.setAttribute('href', articleUrlAbs);
+
+        var imageAbs = post.image ? 'https://sangmedica.netlify.app' + post.image : 'https://sangmedica.netlify.app/images/og-image.jpg';
+        var ldJson = {
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.excerpt,
+          image: imageAbs,
+          datePublished: post.date,
+          url: articleUrlAbs,
+          mainEntityOfPage: articleUrlAbs,
+          author: { '@type': 'Person', name: '喜多真也' },
+          publisher: {
+            '@type': 'Organization',
+            name: 'SANGMEDICA株式会社',
+            logo: { '@type': 'ImageObject', url: 'https://sangmedica.netlify.app/favicon/icon-180.png' }
+          }
+        };
+        var ldScript = document.createElement('script');
+        ldScript.type = 'application/ld+json';
+        ldScript.textContent = JSON.stringify(ldJson);
+        document.head.appendChild(ldScript);
+
         if (post.image) {
           var heroImgEl = document.getElementById('article-hero-bg-img');
           if (heroImgEl) heroImgEl.setAttribute('src', post.image);
