@@ -54,6 +54,12 @@
       </ul>
     </nav>
 
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" data-lang="ja">JA</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="vi">VI</button>
+    </div>
+
     <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
     </button>
@@ -72,8 +78,8 @@
 
     <div class="container hero-inner">
       <p class="hero-eyebrow">MEDICAL EDUCATION &amp; CONSULTING</p>
-      <h1 class="hero-title">学びとキャリアを支える</h1>
-      <p class="hero-lead">SANGMEDICA株式会社は現場で培った知見を、学びと挑戦へ。</p>
+      <h1 class="hero-title" data-i18n="hero-title">学びとキャリアを支える</h1>
+      <p class="hero-lead" data-i18n="hero-lead">SANGMEDICA株式会社は現場で培った知見を、学びと挑戦へ。</p>
     </div>
 
     <a href="#news" class="scroll-cue" aria-label="次のセクションへスクロール">
@@ -108,37 +114,37 @@
     <div class="container">
       <div class="section-head">
         <p class="section-eyebrow">ABOUT US</p>
-        <h2 class="section-title">会社概要</h2>
+        <h2 class="section-title" data-i18n="about-title">会社概要</h2>
       </div>
 
       <div class="about-grid">
         <div class="about-lead">
-          <p class="about-statement">医師の「学び」と「キャリア」に、新たな選択肢を。</p>
-          <p class="about-text">医療を取り巻く環境が急速に変化する一方、教育機会にはいまも地域による格差が存在します。臨床研修指導医としての経験と、大学病院に属さず多様な医療現場を渡り歩いてきた自身のキャリアをもとに、医師の「学び方」と「キャリアの選択肢」の両面から成長を支え、自分らしい医師像を築くための新しい土台を提供します。</p>
+          <p class="about-statement" data-i18n="about-statement">医師の「学び」と「キャリア」に、新たな選択肢を。</p>
+          <p class="about-text" data-i18n="about-text">医療を取り巻く環境が急速に変化する一方、教育機会にはいまも地域による格差が存在します。臨床研修指導医としての経験と、大学病院に属さず多様な医療現場を渡り歩いてきた自身のキャリアをもとに、医師の「学び方」と「キャリアの選択肢」の両面から成長を支え、自分らしい医師像を築くための新しい土台を提供します。</p>
         </div>
 
         <div class="about-table-wrap">
           <table class="about-table">
             <tbody>
               <tr>
-                <th>会社名</th>
-                <td>SANGMEDICA株式会社</td>
+                <th data-i18n="about-table-name-label">会社名</th>
+                <td data-i18n="about-table-name-value">SANGMEDICA株式会社</td>
               </tr>
               <tr>
-                <th>設立</th>
-                <td>2025年1月14日</td>
+                <th data-i18n="about-table-founded-label">設立</th>
+                <td data-i18n="about-table-founded-value">2025年1月14日</td>
               </tr>
               <tr>
-                <th>代表者</th>
-                <td>代表取締役　喜多 真也</td>
+                <th data-i18n="about-table-rep-label">代表者</th>
+                <td data-i18n="about-table-rep-value">代表取締役　喜多 真也</td>
               </tr>
               <tr>
-                <th>所在地</th>
-                <td>〒770-8073<br>徳島県徳島市八万町上福万9番地43</td>
+                <th data-i18n="about-table-address-label">所在地</th>
+                <td data-i18n-html="about-table-address-value">〒770-8073<br>徳島県徳島市八万町上福万9番地43</td>
               </tr>
               <tr>
-                <th>事業内容</th>
-                <td>医師生涯教育遠隔サポート<br>医師キャリアブランディングサポート<br>海外事業展開サポート</td>
+                <th data-i18n="about-table-business-label">事業内容</th>
+                <td data-i18n-html="about-table-business-value">医師生涯教育遠隔サポート<br>医師キャリアブランディングサポート<br>海外事業展開サポート</td>
               </tr>
             </tbody>
           </table>
@@ -149,31 +155,31 @@
         <div class="rep-profile-row">
           <div class="rep-profile-head">
             <p class="rep-eyebrow">REPRESENTATIVE</p>
-            <h3>代表者について</h3>
+            <h3 data-i18n="rep-profile-heading">代表者について</h3>
           </div>
           <div class="rep-profile-name-unit">
-            <img src="images/rep-illustration-web.png" alt="喜多真也 似顔絵イラスト" class="rep-illust" loading="lazy">
-            <p class="rep-name">代表取締役医師<br>喜多真也</p>
+            <img src="images/rep-illustration-web.png" alt="喜多真也 似顔絵イラスト" class="rep-illust" loading="lazy" data-i18n-alt="rep-illust-alt">
+            <p class="rep-name" data-i18n-html="rep-profile-name">代表取締役医師<br>喜多真也</p>
           </div>
-          <a href="representative.html" class="btn btn-outline-dark rep-profile-cta">代表者紹介を見る</a>
+          <a href="representative.html" class="btn btn-outline-dark rep-profile-cta" data-i18n="rep-profile-cta">代表者紹介を見る</a>
         </div>
       </div>
 
       <div class="values">
         <div class="value-card">
           <span class="value-num">01</span>
-          <h3>臨床に根ざした学び方</h3>
-          <p>10年以上、臨床研修指導医として若手医師の教育に携わる中で、「何を学ぶか」だけでなく「どのように学ぶか」の重要性を実感してきました。日々の診療や当直に追われる中でも、限られた時間で効率よく知識を身につけ、実践に生かせる学習方法を届けます。</p>
+          <h3 data-i18n="value1-title">臨床に根ざした学び方</h3>
+          <p data-i18n="value1-text">10年以上、臨床研修指導医として若手医師の教育に携わる中で、「何を学ぶか」だけでなく「どのように学ぶか」の重要性を実感してきました。日々の診療や当直に追われる中でも、限られた時間で効率よく知識を身につけ、実践に生かせる学習方法を届けます。</p>
         </div>
         <div class="value-card">
           <span class="value-num">02</span>
-          <h3>多様なキャリアへの伴走</h3>
-          <p>大学病院に属さず、高度医療機関から地域密着型病院、過疎地域・離島医療、診療所、産業医、海外勤務医まで、多様な医療現場で臨床経験を積んできました。その経験を生かし、進路に悩む医師、特に無限の可能性を持つ若手医師一人ひとりの価値観や強みに寄り添ったキャリアプランニングを支援します。</p>
+          <h3 data-i18n="value2-title">多様なキャリアへの伴走</h3>
+          <p data-i18n="value2-text">大学病院に属さず、高度医療機関から地域密着型病院、過疎地域・離島医療、診療所、産業医、海外勤務医まで、多様な医療現場で臨床経験を積んできました。その経験を生かし、進路に悩む医師、特に無限の可能性を持つ若手医師一人ひとりの価値観や強みに寄り添ったキャリアプランニングを支援します。</p>
         </div>
         <div class="value-card">
           <span class="value-num">03</span>
-          <h3>医師の可能性を広げる</h3>
-          <p>学ぶ場所も、働く場所も、目指す医師像も、一人ひとり異なります。SANGMEDICAは医療教育とキャリア支援を通じて、医師が自らの可能性を広げ、自分らしいキャリアを築いていくための新しい土台を提供し、医師の成長とその先にあるより良い医療の実現に貢献します。</p>
+          <h3 data-i18n="value3-title">医師の可能性を広げる</h3>
+          <p data-i18n="value3-text">学ぶ場所も、働く場所も、目指す医師像も、一人ひとり異なります。SANGMEDICAは医療教育とキャリア支援を通じて、医師が自らの可能性を広げ、自分らしいキャリアを築いていくための新しい土台を提供し、医師の成長とその先にあるより良い医療の実現に貢献します。</p>
         </div>
       </div>
     </div>
@@ -188,9 +194,9 @@
     <div class="container">
       <div class="section-head section-head--light section-head--center">
         <p class="section-eyebrow">OUR BUSINESS</p>
-        <h2 class="section-title">事業紹介</h2>
+        <h2 class="section-title" data-i18n="business-title">事業紹介</h2>
         <span class="section-title-line" aria-hidden="true"></span>
-        <p class="section-desc section-desc--light">臨床現場で培った知見を、医療者の学びと医師の挑戦へ。</p>
+        <p class="section-desc section-desc--light" data-i18n="business-desc">臨床現場で培った知見を、医療者の学びと医師の挑戦へ。</p>
       </div>
 
       <div class="business-grid">
@@ -201,11 +207,11 @@
               <path d="M24 12v24"/>
             </svg>
           </div>
-          <h3>医療教育</h3>
-          <p>多忙な臨床業務の合間でも学べるよう、オンライン講義やeラーニング教材に加え、医師同士が学び合い、悩みを共有できるオンラインコミュニティを運営しています。都市部に指導医が集中しがちな現状を踏まえ、地域を問わず質の高い学びと仲間にアクセスできる環境をつくります。また、医師の学びと臨床実践を支える医療情報プラットフォームの構築や、診療支援アプリの開発にも取り組んでいます。</p>
+          <h3 data-i18n="biz1-title">医療教育</h3>
+          <p data-i18n="biz1-text">多忙な臨床業務の合間でも学べるよう、オンライン講義やeラーニング教材に加え、医師同士が学び合い、悩みを共有できるオンラインコミュニティを運営しています。都市部に指導医が集中しがちな現状を踏まえ、地域を問わず質の高い学びと仲間にアクセスできる環境をつくります。また、医師の学びと臨床実践を支える医療情報プラットフォームの構築や、診療支援アプリの開発にも取り組んでいます。</p>
           <ul class="business-tags">
-            <li>オンライン研修</li>
-            <li>オンラインコミュニティ運営</li>
+            <li data-i18n="biz1-tag1">オンライン研修</li>
+            <li data-i18n="biz1-tag2">オンラインコミュニティ運営</li>
           </ul>
         </article>
 
@@ -217,11 +223,11 @@
               <path d="M36 14l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4-2.9-2.8 4-.6z"/>
             </svg>
           </div>
-          <h3>医師キャリアブランディングサポート</h3>
-          <p>面談を通じて医師としての強み・専門性を整理し、キャリアの方向性を言語化します。地域医療、産業医、海外勤務など多様な選択肢の中からご自身に合った働き方を一緒に描き、情報発信やポジショニングづくりまで伴走します。</p>
+          <h3 data-i18n="biz2-title">医師キャリアブランディングサポート</h3>
+          <p data-i18n="biz2-text">面談を通じて医師としての強み・専門性を整理し、キャリアの方向性を言語化します。地域医療、産業医、海外勤務など多様な選択肢の中からご自身に合った働き方を一緒に描き、情報発信やポジショニングづくりまで伴走します。</p>
           <ul class="business-tags">
-            <li>キャリア相談</li>
-            <li>強みの言語化</li>
+            <li data-i18n="biz2-tag1">キャリア相談</li>
+            <li data-i18n="biz2-tag2">強みの言語化</li>
           </ul>
         </article>
 
@@ -232,18 +238,18 @@
               <path d="M8 24h32M24 8c4 4.5 6 10 6 16s-2 11.5-6 16c-4-4.5-6-10-6-16s2-11.5 6-16z"/>
             </svg>
           </div>
-          <h3>海外事業展開サポート</h3>
-          <p>海外移住や現地での資格取得には、行政手続き・言語・生活基盤づくりなど、情報だけでは見えてこない数多くの壁があります。自ら海外クリニックに勤務し、その一つひとつを乗り越えてきた実体験をもとに、海外での就労・開業・事業展開を目指す医師や企業へ実践的なアドバイスと現地連携のサポートを提供します。</p>
+          <h3 data-i18n="biz3-title">海外事業展開サポート</h3>
+          <p data-i18n="biz3-text">海外移住や現地での資格取得には、行政手続き・言語・生活基盤づくりなど、情報だけでは見えてこない数多くの壁があります。自ら海外クリニックに勤務し、その一つひとつを乗り越えてきた実体験をもとに、海外での就労・開業・事業展開を目指す医師や企業へ実践的なアドバイスと現地連携のサポートを提供します。</p>
           <ul class="business-tags">
-            <li>ベトナム移住支援サポート</li>
-            <li>ベトナム就労サポート</li>
+            <li data-i18n="biz3-tag1">ベトナム移住支援サポート</li>
+            <li data-i18n="biz3-tag2">ベトナム就労サポート</li>
           </ul>
         </article>
       </div>
 
       <div class="business-cta">
         <a href="#contact" class="business-cta-link">
-          <span>事業に関するお問い合わせはこちら</span>
+          <span data-i18n="business-cta">事業に関するお問い合わせはこちら</span>
           <span class="business-cta-arrow" aria-hidden="true">&rarr;</span>
         </a>
       </div>
@@ -458,6 +464,7 @@
   </div>
 </div>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
