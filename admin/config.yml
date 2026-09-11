@@ -54,6 +54,20 @@ collections:
   - name: "community"
     label: "コミュニティページ"
     files:
+      - file: "community/featured.json"
+        label: "代表アプリ（パスワード不要でトップページに公開表示）"
+        name: "community_featured"
+        fields:
+          - { label: "アプリ名", name: "title", widget: "string", required: false }
+          - { label: "アプリのURL", name: "url", widget: "string", required: false }
+          - label: "使い方解説動画（任意／mp4推奨、100MBまで。GitHubの上限が100MBのため、安全のため90MB程度までに収めてください。容量が大きい場合は、iPhoneなら『メール』アプリで動画を送る際に表示される『ビデオサイズ』を『小』か『中』に選ぶと簡単に圧縮できます。Androidなら『Files by Google』アプリの『動画を圧縮』機能が使えます）"
+            name: "video"
+            widget: "file"
+            media_folder: "/media/community-video-uploads"
+            public_folder: "/media/community-video-uploads"
+            required: false
+          - { label: "説明文", name: "description", widget: "text", required: false }
+
       - file: "community/content.json"
         label: "コミュニティページ内容"
         name: "community_content"

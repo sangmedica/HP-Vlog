@@ -1362,6 +1362,38 @@ body {
 }
 
 /* ===================== Community page ===================== */
+.community-featured {
+  max-width: 640px;
+  margin: 0 auto 56px;
+  padding: 40px;
+  background: var(--color-off-white);
+  border-radius: 4px;
+  text-align: center;
+}
+.community-featured h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-gray-500);
+  margin-bottom: 24px;
+}
+.community-featured-video:not([hidden]) {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  background: var(--color-gray-900);
+  margin-bottom: 20px;
+}
+.community-featured h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.community-featured p {
+  font-size: 0.9rem;
+  color: var(--color-gray-700);
+  margin-bottom: 20px;
+}
+
 .community-gate {
   max-width: 480px;
   margin: 0 auto;

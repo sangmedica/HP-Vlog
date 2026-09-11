@@ -837,6 +837,35 @@
     });
   }
 
+  /* ---------- Community page: featured app (public, no password) ---------- */
+  var communityFeaturedEl = document.getElementById('community-featured');
+  if (communityFeaturedEl) {
+    fetch('community/featured.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (!data || (!data.title && !data.url && !data.video)) return;
+
+        if (data.title) {
+          document.getElementById('community-featured-title').textContent = data.title;
+        }
+        if (data.description) {
+          document.getElementById('community-featured-description').textContent = data.description;
+        }
+        if (data.video) {
+          var videoEl = document.getElementById('community-featured-video');
+          videoEl.setAttribute('src', data.video);
+          videoEl.hidden = false;
+        }
+        if (data.url) {
+          var linkEl = document.getElementById('community-featured-link');
+          linkEl.setAttribute('href', data.url);
+          linkEl.hidden = false;
+        }
+        communityFeaturedEl.hidden = false;
+      })
+      .catch(function () { /* 代表アプリが取得できなくてもページ表示自体は継続する */ });
+  }
+
   /* ---------- Community page (password gate) ---------- */
   var COMMUNITY_VIEWS_ENDPOINT = '/.netlify/functions/community-views';
 

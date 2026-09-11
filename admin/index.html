@@ -35,6 +35,8 @@
               });
             }
           });
+          var singleVideo = entry.getIn(['data', 'video']);
+          if (singleVideo) paths.push(singleVideo);
         } catch (e) { /* 構造が想定と違っても公開は止めない */ }
         return paths;
       }
