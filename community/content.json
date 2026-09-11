@@ -2,12 +2,12 @@
   "notionUrl": "",
   "apps": [
     {
-      "slug": "sample-app",
-      "title": "サンプルアプリ",
-      "category": "",
-      "url": "",
+      "slug": "kampo-shinryo-navi",
+      "title": "漢方診療ナビ",
+      "category": "医療系",
+      "url": "https://kampo-shinryo-navi.netlify.app",
       "video": "",
-      "description": "ここに紹介文を入力してください。管理画面（/admin/）の「コミュニティページ」から編集・追加できます。"
+      "description": "疾患・症候を選び、患者の証（虚実・寒熱・気血水）や身体所見をクリックで選択していくと、該当する漢方処方の候補と根拠・出典を提示する臨床推論の学習アプリです。"
     }
   ]
 }
