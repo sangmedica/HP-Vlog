@@ -8,6 +8,14 @@
       "url": "https://kampo-shinryo-navi.netlify.app",
       "video": "/media/community-video-uploads/kampo-shinryo-navi-guide.mp4",
       "description": "疾患・症候を選び、患者の証（虚実・寒熱・気血水）や身体所見をクリックで選択していくと、該当する漢方処方の候補と根拠・出典を提示する臨床推論の学習アプリです。"
+    },
+    {
+      "slug": "prevmed-app",
+      "title": "予防医学ナビ",
+      "category": "予防医療",
+      "url": "https://prevmed-app.netlify.app",
+      "video": "/media/community-video-uploads/prevmed-app-guide.mp4",
+      "description": "USPSTF（米国予防医学専門委員会）の推奨をワクチン以外の分野別に統合し、患者情報を入力するだけで該当する予防医療（がん検診・スクリーニング等）の推奨項目を一覧化できるアプリです。"
     }
   ]
 }
