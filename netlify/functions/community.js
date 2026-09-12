@@ -32,5 +32,23 @@ exports.handler = async (event) => {
     return jsonResponse(401, { error: 'Invalid password' });
   }
 
-  return jsonResponse(200, content);
+  return jsonResponse(200, withAccessToken(content));
 };
+
+// 各アプリのURLに秘密トークンを付与し、アプリ側(Netlify Edge Function)で
+// SANGMEDICAのこのページを経由したアクセスかどうかを検証できるようにする。
+// SANGMEDICA_ACCESS_TOKEN は各アプリのNetlifyサイトにも同じ値で設定すること。
+function withAccessToken(data) {
+  const token = process.env.SANGMEDICA_ACCESS_TOKEN;
+  if (!token || !Array.isArray(data.apps)) return data;
+
+  return Object.assign({}, data, {
+    apps: data.apps.map(function (app) {
+      if (!app.url) return app;
+      const sep = app.url.indexOf('?') === -1 ? '?' : '&';
+      return Object.assign({}, app, {
+        url: app.url + sep + 'sgmToken=' + encodeURIComponent(token)
+      });
+    })
+  });
+}
