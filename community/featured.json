@@ -1,5 +1,5 @@
 {
-  "title": "渡航先 感染症・推奨ワクチン検索",
+  "title": "渡航医学ラボ",
   "url": "https://travel-infection-app.netlify.app/",
   "video": "/media/community-video-uploads/travel-infection-app-guide.mp4",
   "description": "渡航先の国・地域を入力すると、CDC・TravelHealthPro・FORTH（厚労省検疫所）の公的情報をもとに、流行している感染症や推奨ワクチンを検索できるアプリです。症状からの鑑別診断や、出発前のワクチン接種スケジュール逆算機能なども備えています。"
