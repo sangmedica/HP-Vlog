@@ -1439,6 +1439,12 @@ body {
 .community-gate-lead {
   font-size: 0.95rem;
   color: var(--color-gray-700);
+  margin-bottom: 12px;
+}
+.community-gate-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
   margin-bottom: 32px;
 }
 .community-gate-form {
