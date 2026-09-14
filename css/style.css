@@ -1324,6 +1324,20 @@ body {
   color: var(--color-gray-700);
   margin-bottom: 10px;
 }
+.article-content .article-figure {
+  margin: 8px 0 32px;
+}
+.article-content .article-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+.article-content a {
+  color: var(--color-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 /* ---------- News ---------- */
 .news-section {

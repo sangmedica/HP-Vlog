@@ -325,14 +325,25 @@
     return found ? found.label : slug;
   }
 
-  // 本文はシンプルな Markdown 風テキスト（空行区切り = 段落、"## " = 見出し）を想定
+  // インライン記法: [文字](URL) をリンクに変換（前段で escapeHtml 済みのテキストに対して行う）
+  function renderInlineMarkdown(text) {
+    return escapeHtml(text).replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (m, label, url) {
+      return '<a href="' + url + '">' + label + '</a>';
+    });
+  }
+
+  // 本文はシンプルな Markdown 風テキスト（空行区切り = 段落、"## " = 見出し、"![alt](url)" = 画像単独ブロック）を想定
   function renderMarkdown(md) {
     return md.split(/\n\n+/).map(function (block) {
       block = block.trim();
       if (block.indexOf('## ') === 0) {
         return '<h2>' + escapeHtml(block.slice(3).trim()) + '</h2>';
       }
-      return '<p>' + escapeHtml(block).replace(/\n/g, ' ') + '</p>';
+      var imageMatch = block.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+      if (imageMatch) {
+        return '<figure class="article-figure"><img src="' + imageMatch[2] + '" alt="' + escapeHtml(imageMatch[1]) + '" loading="lazy"></figure>';
+      }
+      return '<p>' + renderInlineMarkdown(block).replace(/\n/g, ' ') + '</p>';
     }).join('\n');
   }
 
