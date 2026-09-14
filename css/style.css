@@ -221,8 +221,11 @@ body {
   font-family: var(--font-en);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
-  color: var(--color-gray-500);
-  transition: color var(--transition-base);
+  color: var(--color-white);
+  transition: transform var(--transition-base);
+}
+.lang-switch-toggle:hover {
+  transform: scale(1.12);
 }
 .lang-switch-toggle::after {
   content: "";
