@@ -873,33 +873,46 @@
     });
   }
 
-  /* ---------- Community page: featured app (public, no password) ---------- */
+  /* ---------- Community page: featured apps (public, no password) ---------- */
   var communityFeaturedEl = document.getElementById('community-featured');
   if (communityFeaturedEl) {
     fetch('community/featured.json')
       .then(function (res) { return res.json(); })
       .then(function (data) {
-        if (!data || (!data.title && !data.url && !data.video)) return;
+        var apps = (data && Array.isArray(data.apps)) ? data.apps : (data && (data.title || data.url) ? [data] : []);
+        apps = apps.filter(function (app) { return app && (app.title || app.url || app.video); });
+        if (!apps.length) return;
 
-        if (data.title) {
-          document.getElementById('community-featured-title').textContent = data.title;
-        }
-        if (data.description) {
-          document.getElementById('community-featured-description').textContent = data.description;
-        }
-        if (data.video) {
-          var videoEl = document.getElementById('community-featured-video');
-          videoEl.setAttribute('src', data.video);
-          videoEl.hidden = false;
-        }
-        if (data.url) {
-          var linkEl = document.getElementById('community-featured-link');
-          linkEl.setAttribute('href', data.url);
-          linkEl.hidden = false;
+        var listEl = document.getElementById('community-featured-list');
+        if (listEl) {
+          listEl.innerHTML = apps.map(buildFeaturedAppCardHTML).join('');
         }
         communityFeaturedEl.hidden = false;
       })
       .catch(function () { /* 代表アプリが取得できなくてもページ表示自体は継続する */ });
+  }
+
+  function buildFeaturedAppCardHTML(app) {
+    var videoHtml = app.video
+      ? '<video controls playsinline preload="metadata" class="community-featured-video" src="' + escapeHtml(app.video) + '"></video>'
+      : '';
+    var links = '';
+    if (app.url) {
+      links += '<a href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener" class="btn btn-outline-dark">' + escapeHtml(app.linkLabel || 'アプリを開く') + '</a>';
+    }
+    if (app.apkUrl) {
+      links += '<a href="' + escapeHtml(app.apkUrl) + '" download class="btn btn-outline-dark">' + escapeHtml(app.apkLinkLabel || 'APKをダウンロード') + '</a>';
+    }
+    var descHtml = (app.description || '').split('\n').filter(function (line) { return line.trim(); })
+      .map(function (line) { return '<p>' + escapeHtml(line) + '</p>'; }).join('');
+    return (
+      '<article class="community-app-card">' +
+        videoHtml +
+        '<h3>' + escapeHtml(app.title || '') + '</h3>' +
+        descHtml +
+        links +
+      '</article>'
+    );
   }
 
   /* ---------- Community page (password gate) ---------- */

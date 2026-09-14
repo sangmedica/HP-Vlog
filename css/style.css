@@ -1471,7 +1471,7 @@ body {
 
 /* ===================== Community page ===================== */
 .community-featured {
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 auto 56px;
   padding: 40px;
   background: var(--color-off-white);
@@ -1483,6 +1483,20 @@ body {
   font-weight: 700;
   color: var(--color-gray-500);
   margin-bottom: 24px;
+}
+.community-featured .community-apps {
+  text-align: left;
+}
+.community-featured .community-app-card {
+  background: var(--color-white, #fff);
+  display: flex;
+  flex-direction: column;
+}
+.community-featured .community-app-card .btn {
+  margin-top: auto;
+}
+.community-featured .community-app-card .btn + .btn {
+  margin-top: 10px;
 }
 .community-featured-video:not([hidden]) {
   width: 100%;
