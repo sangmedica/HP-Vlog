@@ -1,0 +1,833 @@
+[
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "あ行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e806e844ed02224eeeaa1",
+    "data_source_url": "collection://33a41378-e19e-807e-b773-000b659870d7"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "か行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e803f87b6c245d2973063",
+    "data_source_url": "collection://33a41378-e19e-811b-b562-000b95ab3b7a"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "さ行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e800494b4fc4d6ce65616",
+    "data_source_url": "collection://33a41378-e19e-81aa-927e-000b7fcf247c"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "た行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e800e9d0be3f0d9ecd3bf",
+    "data_source_url": "collection://33a41378-e19e-81d4-b24e-000b9a9afeff"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "な行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e8079afbafb13327d5068",
+    "data_source_url": "collection://33a41378-e19e-81bd-b64c-000be3dd203f"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "は行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e80838c05ea664518c154",
+    "data_source_url": "collection://33a41378-e19e-8135-a017-000b3d1021eb"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "ま行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e80c2bacbd2ca7e244d10",
+    "data_source_url": "collection://33a41378-e19e-8178-8dc7-000bc6021080"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "や行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e808b898fdd9db6cf0316",
+    "data_source_url": "collection://33a41378-e19e-81e7-bf1d-000b782bec8c"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "ら行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e805296c9e25346b10c77",
+    "data_source_url": "collection://33a41378-e19e-8114-9827-000bc57f6f0f"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "わ行"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e803280b5ede7cac9dd15",
+    "data_source_url": "collection://33a41378-e19e-81cb-a2fe-000b2863765b"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(動詞)",
+      "その他"
+    ],
+    "database_url": "https://app.notion.com/p/34741378e19e80e5ad8de54b78bd6449",
+    "data_source_url": "collection://34741378-e19e-8124-bc8f-000bde96816a"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "あ行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80158407db5d4a9fe521",
+    "data_source_url": "collection://34841378-e19e-8109-80c0-000b2ea00a6d"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "か行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80f6ae89c109022a8418",
+    "data_source_url": "collection://34841378-e19e-810c-879d-000b75e2413b"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "さ行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e8057b8a4d57968d766c1",
+    "data_source_url": "collection://34841378-e19e-8105-8f36-000bdefb2d37"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "た行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80688ed4d5290ff4c7cc",
+    "data_source_url": "collection://34841378-e19e-8123-b255-000be40197d6"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "な行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80e488f6c89e4b8e0095",
+    "data_source_url": "collection://34841378-e19e-811b-b664-000b5c5982af"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "は行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e8001a1a1c60101208c19",
+    "data_source_url": "collection://34841378-e19e-81a6-918d-000b5d71e53f"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "ま行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e808d8bf1e6fb811bd668",
+    "data_source_url": "collection://34841378-e19e-8141-b8f9-000b0b373c1f"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "や行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e8040ba8cf99663991df5",
+    "data_source_url": "collection://34841378-e19e-81f1-a1cf-000b5d3be3e3"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "ら行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80048e5ffdcf4bff8671",
+    "data_source_url": "collection://34841378-e19e-8131-8e42-000b622e15e0"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "わ行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80e2bd3ef53860ffb813",
+    "data_source_url": "collection://34841378-e19e-8195-80e4-000be996f754"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(名詞)",
+      "その他"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e8004900ec59c6911c36d",
+    "data_source_url": "collection://34841378-e19e-81a8-89f1-000be0126db4"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "あ行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80d1b695fa0d6ffb8ab6",
+    "data_source_url": "collection://34841378-e19e-81a8-9116-000b11533d01"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "か行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e8033823cd0af7907a9e3",
+    "data_source_url": "collection://34841378-e19e-814c-852d-000bd782d6db"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "さ行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80f1b304ce7a6458ff3b",
+    "data_source_url": "collection://34841378-e19e-817f-9151-000bf056bd12"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "た行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e8032b12deed00efae6eb",
+    "data_source_url": "collection://34841378-e19e-8179-aeba-000b954d15dc"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "な行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80ada727e804f148cd6d",
+    "data_source_url": "collection://34841378-e19e-8190-9dad-000b806466fa"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "は行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80dc860cf0c5aef0f0a8",
+    "data_source_url": "collection://34841378-e19e-8181-ab86-000bb6f644c3"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "ま行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e804d91dce7e9c81bfb72",
+    "data_source_url": "collection://34841378-e19e-8139-ac69-000b4735eec1"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "や行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e809b853dd07bd290a92e",
+    "data_source_url": "collection://34841378-e19e-81c5-8d1a-000bc8a5c739"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "ら行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e8001a7a1da6d15747288",
+    "data_source_url": "collection://34841378-e19e-811e-bdc6-000b4037c235"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "わ行"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80d9938fe7f553ba4363",
+    "data_source_url": "collection://34841378-e19e-810b-866d-000b70954cc7"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "単語(形容詞・副詞)",
+      "その他"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80409f20f273b312086b",
+    "data_source_url": "collection://35541378-e19e-81cd-9c0d-000bf1338d52"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "痛みの問診"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e80dc935ad3f10c57b993",
+    "data_source_url": "collection://33a41378-e19e-8159-8c09-000bbcf3c043"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "性状(咳・痰・便)の問診"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80a0b270fca7560a131a",
+    "data_source_url": "collection://34841378-e19e-81d0-bd69-000be10662c8"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "診療部門"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e8007a6c4c6a4a508f02a",
+    "data_source_url": "collection://33a41378-e19e-81f7-83cd-000ba01e5654"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "病院構造"
+    ],
+    "database_url": "https://app.notion.com/p/34f41378e19e817d8542ffc192943ff6",
+    "data_source_url": "collection://34f41378-e19e-816e-9351-000b4ca98732"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "医療器具"
+    ],
+    "database_url": "https://app.notion.com/p/34f41378e19e815182a0d579f928ab14",
+    "data_source_url": "collection://34f41378-e19e-817a-a0fc-000be3dcb9db"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "リハビリ"
+    ],
+    "database_url": "https://app.notion.com/p/34941378e19e808fa6d5ea92b129dc3e",
+    "data_source_url": "collection://34941378-e19e-8191-94b0-000b82040e29"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "外傷"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e805b88ebf2d01989b45d",
+    "data_source_url": "collection://33a41378-e19e-8149-9a32-000b1695e7a7"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "血液"
+    ],
+    "database_url": "https://app.notion.com/p/33c41378e19e8005b662cf65624c609c",
+    "data_source_url": "collection://33c41378-e19e-8102-9cc7-000bf2211c56"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "薬"
+    ],
+    "database_url": "https://app.notion.com/p/34741378e19e8055a3cbea5a9af13cf3",
+    "data_source_url": "collection://34741378-e19e-8192-bdc8-000b778dfea7"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "一般検査"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e801c96c3e00201cce29e",
+    "data_source_url": "collection://34a41378-e19e-81f3-8ffd-000b949a6ec6"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "眼科"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e802bbabff9937e5aaa80",
+    "data_source_url": "collection://34a41378-e19e-8112-b962-000be67fc25a"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "耳鼻咽喉科"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e8027bfcef51b85bfe8fb",
+    "data_source_url": "collection://34a41378-e19e-8179-9ec8-000bed8d55c4"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "頭頸部科"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e80a3a7a5f9ce06db5fdd",
+    "data_source_url": "collection://34a41378-e19e-81c5-998e-000b79e91e3d"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "呼吸器系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e809ba025dacb5bee91b6",
+    "data_source_url": "collection://34a41378-e19e-81c4-b019-000b5c8db86e"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "心臓・血管系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e8037ac25dde6657cecd3",
+    "data_source_url": "collection://34a41378-e19e-8134-b436-000bf0786680"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "消化器系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e80469237dbd11ad2fe5d",
+    "data_source_url": "collection://34a41378-e19e-81b6-b29a-000b2dcdf52d"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "腎・泌尿器系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e800ab79dfd75b6c5bbd9",
+    "data_source_url": "collection://34a41378-e19e-817b-a1c7-000b56dc920c"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "婦人科系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e80429bd8cce06f3dbfaa",
+    "data_source_url": "collection://34a41378-e19e-81f8-b6f0-000b3588615b"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "内分泌系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e8070ac4fd66b3314dccb",
+    "data_source_url": "collection://34a41378-e19e-818d-a4ca-000b89f58935"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "血液系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e80719db3c14acf904971",
+    "data_source_url": "collection://34a41378-e19e-810f-84ba-000bc52a5017"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "整形系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e80c4890fedc1e9055af4",
+    "data_source_url": "collection://34a41378-e19e-8135-b793-000b27f0d8f5"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "神経系"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e80c482f4ccb94867d053",
+    "data_source_url": "collection://34a41378-e19e-8127-be5b-000b8581c575"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "検査項目",
+      "その他"
+    ],
+    "database_url": "https://app.notion.com/p/34a41378e19e8039835ff85e6469c233",
+    "data_source_url": "collection://34a41378-e19e-8141-96c4-000b83a9cc57"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "こどもの成長発達"
+    ],
+    "database_url": "https://app.notion.com/p/35041378e19e80828723ee82804deb32",
+    "data_source_url": "collection://35041378-e19e-81e8-b437-000b563a6218"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "体の部位"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e8048ade5edbbf0e674c9",
+    "data_source_url": "collection://33a41378-e19e-8153-9c98-000bd0a4888f"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "方向"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80c09f9eeea1bf574900",
+    "data_source_url": "collection://35541378-e19e-8100-baf1-000bd944eb54"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "泌尿器"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80e18c70f43c8d00788a",
+    "data_source_url": "collection://35541378-e19e-814b-a4cf-000b92672969"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "耳鼻科"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e802b93e3e1a2161dafc8",
+    "data_source_url": "collection://35541378-e19e-81bd-8f2a-000b7e0aec0a"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "産婦人科"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80fea819fe0143f16273",
+    "data_source_url": "collection://35541378-e19e-81e0-a165-000b07a17402"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "眼科"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80e5955fe982b124c838",
+    "data_source_url": "collection://35541378-e19e-815f-816f-000b8dc3fe5a"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "消化器"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e8011bd63c861344080ca",
+    "data_source_url": "collection://35541378-e19e-8152-9388-000b37cf99ca"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "呼吸器"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80c09bedc8bc53cdff7c",
+    "data_source_url": "collection://35541378-e19e-8142-b967-000b44f6c49c"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "神経"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80daad72ed3f74ec087d",
+    "data_source_url": "collection://35541378-e19e-8180-bdcb-000b15005714"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "循環器"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80b2806ee299067094bf",
+    "data_source_url": "collection://35541378-e19e-8121-b37c-000bc8b89ba2"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "腎臓"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e805e97cbdd4524c43dad",
+    "data_source_url": "collection://35541378-e19e-81d1-836b-000b3adbe285"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "整形(骨以外)"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80279350fbef190c139a",
+    "data_source_url": "collection://35541378-e19e-819a-9fc4-000b24f4e62f"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "解剖",
+      "骨"
+    ],
+    "database_url": "https://app.notion.com/p/34f41378e19e8110a0ffce32ae70d26a",
+    "data_source_url": "collection://34f41378-e19e-8144-a6ec-000b96f1d327"
+  },
+  {
+    "path": [
+      "忘れがちな単語",
+      "疾患名"
+    ],
+    "database_url": "https://app.notion.com/p/33a41378e19e80c0816dfebff324a20e",
+    "data_source_url": "collection://33a41378-e19e-81cf-85ff-000b318b3746"
+  },
+  {
+    "path": [
+      "接頭語・接尾語・連結語",
+      "接頭語"
+    ],
+    "database_url": "https://app.notion.com/p/33d41378e19e802cbdfff733ef311c6c",
+    "data_source_url": "collection://33d41378-e19e-8136-9815-000bcd757f23"
+  },
+  {
+    "path": [
+      "接頭語・接尾語・連結語",
+      "接尾語"
+    ],
+    "database_url": "https://app.notion.com/p/33d41378e19e8067bc6ddb3935b3ac7f",
+    "data_source_url": "collection://33d41378-e19e-810b-9a41-000b3406e40b"
+  },
+  {
+    "path": [
+      "接頭語・接尾語・連結語",
+      "接頭語 or 接尾語"
+    ],
+    "database_url": "https://app.notion.com/p/33f41378e19e806b9db8ea2195798cee",
+    "data_source_url": "collection://33f41378-e19e-817c-a0ec-000b08be7f7f"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "診察開始の挨拶"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80dd9149eef3fc3a7b7a",
+    "data_source_url": "collection://35541378-e19e-8197-bfbe-000bf2379c55"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "バイタル測定"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e803eacf0e533b195d734",
+    "data_source_url": "collection://35541378-e19e-81d4-b788-000bab8cf13b"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "問診の場面",
+      "一般"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80e4b7f1cd89e9a3a0e3",
+    "data_source_url": "collection://35541378-e19e-81f5-adcf-000b21d69981"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "問診の場面",
+      "既往歴"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e8096ad09e69aebb58486",
+    "data_source_url": "collection://35541378-e19e-815c-a128-000bf1ad4019"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "問診の場面",
+      "服薬歴"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e806681d0ce42652b7ad9",
+    "data_source_url": "collection://35541378-e19e-81cf-bb47-000b9a6b3ef4"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "問診の場面",
+      "痙攣"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e8011838fc99b18d59773",
+    "data_source_url": "collection://35541378-e19e-8174-93bf-000b3baf4ba3"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "問診の場面",
+      "婦人科"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e8037ae3addf3d075ac56",
+    "data_source_url": "collection://35541378-e19e-8168-bb74-000bf6b21e68"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "身体診察の場面"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e807082fec06a60cc3926",
+    "data_source_url": "collection://35541378-e19e-817f-8f22-000b896474ea"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "内視鏡の場面"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80aab831f7a5b51d9f07",
+    "data_source_url": "collection://35541378-e19e-81fa-be3a-000b3b8be32e"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "検査の場面"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80b9b7dff9ee85643c0d",
+    "data_source_url": "collection://35541378-e19e-819b-9557-000be028ea75"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "結果説明の場面"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e80ad8570f6b392699c62",
+    "data_source_url": "collection://35541378-e19e-8150-b0d2-000b51248684"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "治療の場面"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e805da355d778e0011a67",
+    "data_source_url": "collection://35541378-e19e-812b-909c-000b8e85c099"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "日常生活指導の場面"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e805f8fdbcc27e39fb008",
+    "data_source_url": "collection://35541378-e19e-8106-acb9-000b248eb501"
+  },
+  {
+    "path": [
+      "便利なフレーズ",
+      "診察の最後の場面"
+    ],
+    "database_url": "https://app.notion.com/p/35541378e19e807cb147c8e066412cad",
+    "data_source_url": "collection://35541378-e19e-81f7-a855-000b92720736"
+  },
+  {
+    "path": [
+      "単位の違い",
+      "体温(摂氏と華氏)"
+    ],
+    "database_url": "https://app.notion.com/p/34841378e19e80d4ba65f79a4a64f833",
+    "data_source_url": "collection://34841378-e19e-81e8-9085-000b71e60c3e"
+  },
+  {
+    "path": [
+      "発音",
+      "弱形発音",
+      "前置詞"
+    ],
+    "database_url": "https://app.notion.com/p/34241378e19e80d180c8d121720e2c19",
+    "data_source_url": "collection://34241378-e19e-81d8-9a8a-000bb1978917"
+  },
+  {
+    "path": [
+      "発音",
+      "弱形発音",
+      "代名詞"
+    ],
+    "database_url": "https://app.notion.com/p/34241378e19e805b8eabdfcfed78ef02",
+    "data_source_url": "collection://34241378-e19e-811f-907f-000b37ac1bc0"
+  },
+  {
+    "path": [
+      "発音",
+      "弱形発音",
+      "接続詞"
+    ],
+    "database_url": "https://app.notion.com/p/34241378e19e807f9e6bd22437c55687",
+    "data_source_url": "collection://34241378-e19e-813a-a5cd-000b1b84e553"
+  },
+  {
+    "path": [
+      "発音",
+      "弱形発音",
+      "助動詞"
+    ],
+    "database_url": "https://app.notion.com/p/34241378e19e80d4a0cef280588c7bab",
+    "data_source_url": "collection://34241378-e19e-81e8-9d95-000be9f4203e"
+  },
+  {
+    "path": [
+      "発音",
+      "弱形発音",
+      "be動詞"
+    ],
+    "database_url": "https://app.notion.com/p/34241378e19e80bdae61fa73c8d18865",
+    "data_source_url": "collection://34241378-e19e-81b5-86d1-000b0176e834"
+  },
+  {
+    "path": [
+      "発音",
+      "弱形発音",
+      "その他"
+    ],
+    "database_url": "https://app.notion.com/p/34241378e19e803ab322db5d78253a88",
+    "data_source_url": "collection://34241378-e19e-819d-9ba3-000bbf8286a2"
+  }
+]
