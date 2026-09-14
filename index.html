@@ -87,9 +87,14 @@
     </nav>
 
     <div class="lang-switch" id="lang-switch">
-      <button type="button" data-lang="ja">JA</button>
-      <button type="button" data-lang="en">EN</button>
-      <button type="button" data-lang="vi">VI</button>
+      <button type="button" class="lang-switch-toggle" aria-haspopup="true" aria-expanded="false">Language</button>
+      <div class="lang-switch-menu" role="menu">
+        <div class="lang-switch-menu-inner">
+          <button type="button" data-lang="ja" role="menuitem">日本語</button>
+          <button type="button" data-lang="en" role="menuitem">English</button>
+          <button type="button" data-lang="vi" role="menuitem">Tiếng Việt</button>
+        </div>
+      </div>
     </div>
 
     <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">

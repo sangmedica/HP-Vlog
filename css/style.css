@@ -206,36 +206,93 @@ body {
 
 /* ---------- Language switch ---------- */
 .lang-switch {
-  display: flex;
-  align-items: center;
+  position: relative;
   margin-left: 14px;
   font-family: var(--font-en);
 }
-.lang-switch button {
+.lang-switch-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   background: none;
   border: none;
-  border-left: 1px solid rgba(255,255,255,0.25);
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 4px 2px;
   font-family: var(--font-en);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   letter-spacing: 0.04em;
   color: var(--color-gray-500);
   transition: color var(--transition-base);
 }
-.lang-switch button:first-child {
-  border-left: none;
-  padding-left: 0;
+.lang-switch-toggle::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  opacity: 0.7;
+  transition: transform var(--transition-base);
 }
-.lang-switch button:hover { color: var(--color-white); }
-.lang-switch button.is-active {
+.lang-switch-toggle:hover,
+.lang-switch.is-open .lang-switch-toggle {
+  color: var(--color-white);
+}
+.lang-switch.is-open .lang-switch-toggle::after {
+  transform: rotate(180deg);
+}
+
+.lang-switch-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding-top: 10px;
+  min-width: 150px;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility var(--transition-base);
+}
+.lang-switch:hover .lang-switch-menu,
+.lang-switch.is-open .lang-switch-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.lang-switch-menu-inner {
+  background: rgba(26, 26, 26, 0.96);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.lang-switch-menu button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 9px 12px;
+  font-size: 0.85rem;
+  color: var(--color-gray-300);
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+.lang-switch-menu button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-white);
+}
+.lang-switch-menu button.is-active {
   color: var(--color-white);
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 @media (max-width: 720px) {
   .lang-switch { margin-left: 8px; }
+  .lang-switch-menu { right: -8px; }
 }
 
 /* ---------- Hero ---------- */

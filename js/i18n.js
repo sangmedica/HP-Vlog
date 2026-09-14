@@ -276,7 +276,34 @@
     document.querySelectorAll('.lang-switch button[data-lang]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         applyLanguage(btn.getAttribute('data-lang'));
+        closeAllLangSwitches();
       });
+    });
+
+    function closeAllLangSwitches() {
+      document.querySelectorAll('.lang-switch.is-open').forEach(function (el) {
+        el.classList.remove('is-open');
+        var toggle = el.querySelector('.lang-switch-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    document.querySelectorAll('.lang-switch-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var wrap = toggle.closest('.lang-switch');
+        var willOpen = !wrap.classList.contains('is-open');
+        closeAllLangSwitches();
+        if (willOpen) {
+          wrap.classList.add('is-open');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.addEventListener('click', closeAllLangSwitches);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeAllLangSwitches();
     });
   });
 })();
