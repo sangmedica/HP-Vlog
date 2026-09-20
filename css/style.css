@@ -724,7 +724,22 @@ body {
 .contact-modal-title {
   font-size: 1.3rem;
   font-weight: 700;
+  color: var(--color-white);
   margin-bottom: 32px;
+}
+.app-desc-modal-body p {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--color-gray-300);
+  margin-bottom: 16px;
+}
+.app-desc-modal-body p:last-child { margin-bottom: 0; }
+
+.app-desc-trigger {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8rem;
 }
 .rep-title {
   font-size: 0.85rem;

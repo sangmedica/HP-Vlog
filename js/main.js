@@ -105,6 +105,40 @@
     });
   }
 
+  /* ---------- App description modal (community page) ---------- */
+  var appDescModal = document.getElementById('app-desc-modal');
+  if (appDescModal) {
+    var appDescModalTitle = document.getElementById('app-desc-modal-title');
+    var appDescModalBody = document.getElementById('app-desc-modal-body');
+    var appDescLastFocused = null;
+
+    var openAppDescModal = function (title, description) {
+      appDescModalTitle.textContent = title || 'アプリの説明';
+      appDescModalBody.innerHTML = (description || '').split('\n')
+        .filter(function (line) { return line.trim(); })
+        .map(function (line) { return '<p>' + escapeHtml(line) + '</p>'; })
+        .join('');
+      appDescLastFocused = document.activeElement;
+      appDescModal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      appDescModal.querySelector('.contact-modal-close').focus();
+    };
+
+    function closeAppDescModal() {
+      appDescModal.hidden = true;
+      document.body.style.overflow = '';
+      if (appDescLastFocused) appDescLastFocused.focus();
+    }
+
+    appDescModal.querySelectorAll('[data-app-desc-close]').forEach(function (el) {
+      el.addEventListener('click', closeAppDescModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !appDescModal.hidden) closeAppDescModal();
+    });
+  }
+
   /* ---------- Mobile nav toggle ---------- */
   var navToggle = document.getElementById('nav-toggle');
   var nav = document.getElementById('nav');
@@ -886,13 +920,19 @@
         var listEl = document.getElementById('community-featured-list');
         if (listEl) {
           listEl.innerHTML = apps.map(buildFeaturedAppCardHTML).join('');
+          listEl.addEventListener('click', function (e) {
+            var trigger = e.target.closest('.app-desc-trigger');
+            if (!trigger) return;
+            var app = apps[Number(trigger.getAttribute('data-desc-index'))];
+            if (app) openAppDescModal(app.title, app.description);
+          });
         }
         communityFeaturedEl.hidden = false;
       })
       .catch(function () { /* 代表アプリが取得できなくてもページ表示自体は継続する */ });
   }
 
-  function buildFeaturedAppCardHTML(app) {
+  function buildFeaturedAppCardHTML(app, index) {
     var videoHtml = app.video
       ? '<video controls playsinline preload="metadata" class="community-featured-video" src="' + escapeHtml(app.video) + '"></video>'
       : '';
@@ -903,13 +943,14 @@
     if (app.apkUrl) {
       links += '<a href="' + escapeHtml(app.apkUrl) + '" download class="btn btn-outline-dark">' + escapeHtml(app.apkLinkLabel || 'APKをダウンロード') + '</a>';
     }
-    var descHtml = (app.description || '').split('\n').filter(function (line) { return line.trim(); })
-      .map(function (line) { return '<p>' + escapeHtml(line) + '</p>'; }).join('');
+    var descBtn = app.description
+      ? '<button type="button" class="blog-tag app-desc-trigger" data-desc-index="' + index + '">アプリの説明</button>'
+      : '';
     return (
       '<article class="community-app-card">' +
         videoHtml +
         '<h3>' + escapeHtml(app.title || '') + '</h3>' +
-        descHtml +
+        descBtn +
         links +
       '</article>'
     );
@@ -950,12 +991,18 @@
       var linkHtml = app.url
         ? '<a href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener" class="btn btn-outline-dark community-app-link" data-app-slug="' + escapeHtml(app.slug || '') + '">アプリを開く</a>'
         : '';
+      var descBtn = app.description
+        ? '<button type="button" class="blog-tag app-desc-trigger" data-desc-slug="' + escapeHtml(app.slug || '') + '">アプリの説明</button>'
+        // キーワード検索(アプリ名・説明文で検索)が引き続き説明文を対象にできるよう、
+        // 非表示のまま説明文をDOMに保持しておく(textContentには残るため検索は効く)
+        + '<span hidden>' + escapeHtml(app.description) + '</span>'
+        : '';
       return (
         '<article class="community-app-card" data-category="' + escapeHtml(app.category || '') + '" data-slug="' + escapeHtml(app.slug || '') + '">' +
           videoHtml +
           '<div class="community-app-meta">' + catHtml + '<span class="community-app-views">' + count + '回アクセス</span></div>' +
           '<h3>' + escapeHtml(app.title || '') + '</h3>' +
-          (app.description ? '<p>' + escapeHtml(app.description) + '</p>' : '') +
+          descBtn +
           linkHtml +
         '</article>'
       );
@@ -1057,6 +1104,12 @@
             appsGrid.innerHTML = apps.length
               ? apps.map(function (app) { return buildCommunityAppCardHTML(app, viewsData); }).join('')
               : '<p class="blog-empty">現在紹介中のアプリはありません。</p>';
+            appsGrid.addEventListener('click', function (e) {
+              var trigger = e.target.closest('.app-desc-trigger');
+              if (!trigger) return;
+              var app = apps.filter(function (a) { return a.slug === trigger.getAttribute('data-desc-slug'); })[0];
+              if (app) openAppDescModal(app.title, app.description);
+            });
           }
 
           var rankingWrap = document.getElementById('community-ranking');
