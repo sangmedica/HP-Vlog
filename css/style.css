@@ -1531,6 +1531,44 @@ body {
   margin-bottom: 20px;
 }
 
+.community-preview {
+  max-width: 960px;
+  margin: 0 auto 56px;
+  padding: 40px;
+  background: var(--color-off-white);
+  border-radius: 4px;
+  text-align: center;
+}
+.community-preview h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-gray-500);
+  margin-bottom: 12px;
+}
+.community-preview-note {
+  font-size: 0.82rem;
+  color: var(--color-gray-500);
+  margin-bottom: 24px;
+}
+.community-preview .community-apps {
+  text-align: left;
+}
+.community-preview .community-app-card {
+  background: var(--color-white, #fff);
+}
+.community-preview .community-featured-video:not([hidden]) {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  background: var(--color-gray-900);
+  margin-bottom: 20px;
+}
+.community-preview h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
 .community-gate {
   max-width: 480px;
   margin: 0 auto;

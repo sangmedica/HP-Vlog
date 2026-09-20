@@ -932,6 +932,31 @@
       .catch(function () { /* 代表アプリが取得できなくてもページ表示自体は継続する */ });
   }
 
+  /* ---------- Community page: password保護アプリの簡易プレビュー(公開・タイトル/説明/動画のみ) ---------- */
+  var communityPreviewEl = document.getElementById('community-preview');
+  if (communityPreviewEl) {
+    fetch('/.netlify/functions/community-preview')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        var apps = (data && Array.isArray(data.apps)) ? data.apps : [];
+        apps = apps.filter(function (app) { return app && (app.title || app.description || app.video); });
+        if (!apps.length) return;
+
+        var listEl = document.getElementById('community-preview-list');
+        if (listEl) {
+          listEl.innerHTML = apps.map(buildFeaturedAppCardHTML).join('');
+          listEl.addEventListener('click', function (e) {
+            var trigger = e.target.closest('.app-desc-trigger');
+            if (!trigger) return;
+            var app = apps[Number(trigger.getAttribute('data-desc-index'))];
+            if (app) openAppDescModal(app.title, app.description);
+          });
+        }
+        communityPreviewEl.hidden = false;
+      })
+      .catch(function () { /* プレビューが取得できなくてもページ表示自体は継続する */ });
+  }
+
   function buildFeaturedAppCardHTML(app, index) {
     var videoHtml = app.video
       ? '<video controls playsinline preload="metadata" class="community-featured-video" src="' + escapeHtml(app.video) + '"></video>'
