@@ -32,6 +32,14 @@
       "url": "https://frailty-locomo-navi.netlify.app",
       "video": "/media/community-video-uploads/frailty-locomo-navi-guide.mp4",
       "description": "外来の医療者向けに、フレイル・サルコペニア・ロコモティブシンドロームの早期発見スクリーニング（改訂J-CHS基準・AWGS 2019・ロコモ度テストなど）を自動採点できるアプリです。病態と患者背景（変形性膝関節症・心不全・COPD等）を選ぶと、ガイドラインに基づく運動処方（頻度・強度・時間・種類）と中止基準まで提示され、完全オフラインで患者データも保存・送信されません。"
+    },
+    {
+      "slug": "undou-shohou-navi",
+      "title": "運動処方リファレンス",
+      "category": "運動療法",
+      "url": "https://undou-shohou-navi.netlify.app",
+      "video": "/media/community-video-uploads/undou-shohou-navi-guide.mp4",
+      "description": "健診結果説明や外来での運動指導に使えるアプリです。患者さんの年齢と背景疾患（高血圧・2型糖尿病・心血管疾患・骨粗鬆症・妊娠中など）を選ぶと、WHO・ACSM・厚労省等の一次資料に基づく運動処方（頻度・強度・時間・種類・効果量・注意点）が表示されます。会話テストや目標心拍数計算機も搭載し、完全オフラインで患者データも保存・送信されません。"
     }
   ]
 }
