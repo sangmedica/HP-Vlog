@@ -992,19 +992,6 @@
     var communityContent = document.getElementById('community-content');
     var communitySubmitBtn = communityForm.querySelector('button[type="submit"]');
 
-    var communityAppCountEl = document.getElementById('community-app-count');
-    if (communityAppCountEl) {
-      fetch('/.netlify/functions/community-count')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (typeof data.count === 'number') {
-            communityAppCountEl.textContent = '現在の掲載アプリ数：' + data.count + '件';
-            communityAppCountEl.hidden = false;
-          }
-        })
-        .catch(function () { /* 取得できなくてもページ表示自体は継続する */ });
-    }
-
     function buildCommunityAppCardHTML(app, viewsData) {
       var count = viewsData[app.slug] || 0;
       var videoHtml = app.video
