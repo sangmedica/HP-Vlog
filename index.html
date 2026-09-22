@@ -81,7 +81,7 @@
         <li><a href="#business" class="nav-link">事業紹介</a></li>
         <li><a href="representative.html" class="nav-link">代表者紹介</a></li>
         <li><a href="#blog" class="nav-link">ブログ</a></li>
-        <li><a href="community.html" class="nav-link">アプリ紹介</a></li>
+        <li><a href="#apps" class="nav-link">アプリ紹介</a></li>
         <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
       </ul>
     </nav>
@@ -367,6 +367,74 @@
     </div>
   </section>
 
+  <!-- ===================== Apps Section ===================== -->
+  <section class="section apps" id="apps">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">APPS</p>
+        <h2 class="section-title">アプリ紹介</h2>
+        <p class="section-desc">臨床現場から生まれた、代表自らが企画・開発しているアプリの数々をご紹介します。</p>
+      </div>
+
+      <div class="community-featured" id="community-featured" hidden>
+        <h3>代表アプリのご紹介</h3>
+        <div class="community-apps" id="community-featured-list"></div>
+      </div>
+
+      <div class="community-preview" id="community-preview" hidden>
+        <h3>コミュニティ参加者が利用できるアプリ</h3>
+        <p class="community-preview-note">コミュニティ参加者限定で公開しているアプリの一部です。実際のご利用にはコミュニティへのご参加（パスワード）が必要です。</p>
+        <div class="community-apps" id="community-preview-list"></div>
+      </div>
+
+      <div class="community-gate" id="community-gate">
+        <p class="community-gate-lead">医療情報プラットフォーム・診療支援アプリの紹介ページです。コミュニティ参加希望の方はお問い合わせ窓口よりご連絡下さい。</p>
+        <p class="community-gate-count" id="community-app-count" hidden></p>
+        <form id="community-form" class="community-gate-form" novalidate>
+          <label for="community-password" class="community-gate-label">パスワード</label>
+          <input type="password" id="community-password" name="community-password" autocomplete="off" required>
+          <button type="submit" class="btn btn-primary">開く</button>
+        </form>
+        <p class="community-gate-error" id="community-error" role="alert" aria-live="assertive"></p>
+      </div>
+
+      <div class="community-content" id="community-content" hidden>
+        <div class="community-notion" id="community-notion" hidden>
+          <h3>Notion（閲覧専用）</h3>
+          <p>これまでの活動記録・メモを閲覧いただけます（編集はできません）。</p>
+          <a href="" id="community-notion-link" class="btn btn-outline-dark" target="_blank" rel="noopener">Notionページを開く</a>
+        </div>
+
+        <div class="community-ranking" id="community-ranking" hidden>
+          <h3>アクセスランキング TOP5</h3>
+          <div class="community-ranking-list" id="community-ranking-list"></div>
+        </div>
+
+        <h3 class="community-apps-title">作成したアプリ紹介</h3>
+
+        <div class="blog-search">
+          <div class="blog-search-row">
+            <div class="blog-search-field blog-search-field--keyword">
+              <label for="community-search-keyword">キーワード検索</label>
+              <input type="text" id="community-search-keyword" placeholder="アプリ名・説明文で検索">
+            </div>
+            <div class="blog-search-actions">
+              <button type="button" class="btn btn-outline-dark" id="community-search-clear">条件をクリア</button>
+            </div>
+          </div>
+          <p class="blog-search-status" id="community-search-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="blog-categories" id="community-categories">
+          <p class="blog-categories-label">カテゴリー</p>
+        </div>
+
+        <p class="blog-empty" id="community-apps-empty" hidden>該当するアプリが見つかりませんでした。</p>
+        <div class="community-apps" id="community-apps"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== Contact Section ===================== -->
   <section class="section contact" id="contact">
     <div class="contact-bg" aria-hidden="true">
@@ -529,6 +597,16 @@
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </div>
     </form>
+  </div>
+</div>
+
+<!-- ===================== App Description Modal ===================== -->
+<div class="contact-modal" id="app-desc-modal" hidden>
+  <div class="contact-modal-backdrop" data-app-desc-close></div>
+  <div class="contact-modal-panel" role="dialog" aria-modal="true" aria-labelledby="app-desc-modal-title">
+    <button type="button" class="contact-modal-close" data-app-desc-close aria-label="閉じる">&times;</button>
+    <h3 id="app-desc-modal-title" class="contact-modal-title"></h3>
+    <div class="app-desc-modal-body" id="app-desc-modal-body"></div>
   </div>
 </div>
 

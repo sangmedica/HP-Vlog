@@ -1493,7 +1493,7 @@ body {
   border-radius: 4px;
   text-align: center;
 }
-.community-featured h2 {
+.community-featured h3 {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--color-gray-500);
@@ -1539,7 +1539,7 @@ body {
   border-radius: 4px;
   text-align: center;
 }
-.community-preview h2 {
+.community-preview h3 {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--color-gray-500);
@@ -1631,7 +1631,7 @@ body {
   background: var(--color-off-white);
   border-radius: 4px;
 }
-.community-ranking h2 {
+.community-ranking h3 {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 20px;
