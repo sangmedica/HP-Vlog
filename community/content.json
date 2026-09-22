@@ -16,6 +16,14 @@
       "url": "https://prevmed-app.netlify.app",
       "video": "/media/community-video-uploads/prevmed-app-guide.mp4",
       "description": "USPSTF（米国予防医学専門委員会）の推奨をワクチン以外の分野別に統合し、患者情報を入力するだけで該当する予防医療（がん検診・スクリーニング等）の推奨項目を一覧化できるアプリです。"
+    },
+    {
+      "slug": "ninchisho-navi",
+      "title": "認知症ナビ",
+      "category": "認知症",
+      "url": "https://ninchi-sho.netlify.app",
+      "video": "/media/community-video-uploads/ninchisho-navi-guide.mp4",
+      "description": "外来の医師向けに、認知症のスクリーニング・重症度評価スケール（HDS-R・MMSE・CDR・FASTなど15種類）をその場で採点でき、6ステージ×8領域の治療介入（生活・食事・薬物・ケア）をまとめたアプリです。予防・リスク因子や薬剤の用量なども確認でき、完全オフラインで患者データも保存・送信されません。"
     }
   ]
 }
