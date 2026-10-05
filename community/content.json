@@ -40,6 +40,14 @@
       "url": "https://undou-shohou-navi.netlify.app",
       "video": "/media/community-video-uploads/undou-shohou-navi-guide.mp4",
       "description": "健診結果説明や外来での運動指導に使えるアプリです。患者さんの年齢と背景疾患（高血圧・2型糖尿病・心血管疾患・骨粗鬆症・妊娠中など）を選ぶと、WHO・ACSM・厚労省等の一次資料に基づく運動処方（頻度・強度・時間・種類・効果量・注意点）が表示されます。会話テストや目標心拍数計算機も搭載し、完全オフラインで患者データも保存・送信されません。"
+    },
+    {
+      "slug": "kansensho-navi",
+      "title": "感染症診療ナビ",
+      "category": "感染症",
+      "url": "https://kansensho-navi.netlify.app",
+      "video": "/media/community-video-uploads/kansensho-navi-guide.mp4",
+      "description": "抗菌薬・抗ウイルス薬の選択を、感染症の領域別・原因菌別に確認できる学習・診療支援アプリです。抗菌薬総論（局所療法か全身療法かの使い分けを含む）、領域別の治療、検査の選択と提出方法、グラム染色アトラスを収録し、クイズ「カンセンクエスト：学びの道」やグラム染色ブロック崩しで楽しく復習できます。完全オフラインで動作し、患者データも保存・送信されません。"
     }
   ]
 }
