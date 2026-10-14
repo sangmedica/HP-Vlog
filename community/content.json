@@ -48,6 +48,22 @@
       "url": "https://kansensho-navi.netlify.app",
       "video": "/media/community-video-uploads/kansensho-navi-guide.mp4",
       "description": "抗菌薬・抗ウイルス薬の選択を、感染症の領域別・原因菌別に確認できる学習・診療支援アプリです。抗菌薬総論（局所療法か全身療法かの使い分けを含む）、領域別の治療、検査の選択と提出方法、グラム染色アトラスを収録し、クイズ「カンセンクエスト：学びの道」やグラム染色ブロック崩しで楽しく復習できます。完全オフラインで動作し、患者データも保存・送信されません。"
+    },
+    {
+      "slug": "eiyou-shinryo-navi",
+      "title": "栄養診療ナビ",
+      "category": "栄養",
+      "url": "https://eiyou-shinryo-navi.netlify.app",
+      "video": "/media/community-video-uploads/eiyou-shinryo-navi-guide.mp4",
+      "description": "栄養素の知識、栄養状態の評価ツール、リフィーディング症候群、投与方法・投与の原則、患者状態評価とカロリー輸液の組み立て（実践編）、各栄養剤の成分表、病態別の栄養療法をまとめた医療者向けアプリです。"
+    },
+    {
+      "slug": "denkaishitsu-navi",
+      "title": "電解質・酸塩基ナビ",
+      "category": "電解質・酸塩基",
+      "url": "https://denkaishitsu-navi.netlify.app",
+      "video": "/media/community-video-uploads/denkaishitsu-navi-guide.mp4",
+      "description": "電解質異常（Na・K・Ca・Mg・P）と酸塩基平衡について、検査値からの鑑別、補正・補充量の計算、治療の早見表、病態の解説をまとめた医療者向けアプリです。"
     }
   ]
 }
