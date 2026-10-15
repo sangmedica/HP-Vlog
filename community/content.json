@@ -64,6 +64,14 @@
       "url": "https://denkaishitsu-navi.netlify.app",
       "video": "/media/community-video-uploads/denkaishitsu-navi-guide.mp4",
       "description": "電解質異常（Na・K・Ca・Mg・P）と酸塩基平衡について、検査値からの鑑別、補正・補充量の計算、治療の早見表、病態の解説をまとめた医療者向けアプリです。"
+    },
+    {
+      "slug": "chudoku-navi",
+      "title": "中毒診療ナビ",
+      "category": "中毒",
+      "url": "https://chudoku-navi.netlify.app",
+      "video": "/media/community-video-uploads/chudoku-navi-guide.mp4",
+      "description": "過量服薬・中毒診療の学習と診療補助のためのアプリです。飲んだ薬（商品名・一般名）から中毒量・半減期・症状・拮抗薬や透析などの対応を確認できるOD薬剤検索（202成分、複数薬剤・体重で判定）、トキシドローム判定、原因物質別の対応、除染・排泄促進・解毒薬、計算ツール、クイズを収録しています。"
     }
   ]
 }
