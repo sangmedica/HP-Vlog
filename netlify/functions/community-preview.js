@@ -13,8 +13,10 @@ exports.handler = async (event) => {
     return { statusCode: 405, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
+  // hidePreview: true のアプリは、公開プレビュー(トップページ)には出さず、
+  // パスワード保護エリアにのみ掲載する。
   const apps = Array.isArray(content.apps)
-    ? content.apps.map(function (app) {
+    ? content.apps.filter(function (app) { return !app.hidePreview; }).map(function (app) {
         return {
           title: app.title || '',
           description: app.description || '',

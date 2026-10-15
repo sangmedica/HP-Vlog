@@ -72,6 +72,15 @@
       "url": "https://chudoku-navi.netlify.app",
       "video": "/media/community-video-uploads/chudoku-navi-guide.mp4",
       "description": "過量服薬・中毒診療の学習と診療補助のためのアプリです。飲んだ薬（商品名・一般名）から中毒量・半減期・症状・拮抗薬や透析などの対応を確認できるOD薬剤検索（202成分、複数薬剤・体重で判定）、トキシドローム判定、原因物質別の対応、除染・排泄促進・解毒薬、計算ツール、クイズを収録しています。"
+    },
+    {
+      "slug": "gan-shinryo-navi",
+      "title": "癌診療ナビ",
+      "category": "がん薬物療法",
+      "url": "https://gan-shinryo-navi.netlify.app",
+      "video": "/media/community-video-uploads/gan-shinryo-navi-guide.mp4",
+      "hidePreview": true,
+      "description": "がん薬物療法の学習用アプリです。日本（講演スライドとガイドライン）・アメリカ（NCI PDQ）・ヨーロッパ（NICE）の現状をがん種・病期ごとに整理し、国立がん研究センター中央病院のレジメン表（258件）、薬剤辞典（223件）、分子標的薬・抗体薬物複合体（ADC）、irAE、ICANS、がん遺伝子検査・がんゲノム医療・遺伝性腫瘍まで、情報源つきで横断して学べます。"
     }
   ]
 }
