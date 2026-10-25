@@ -81,6 +81,14 @@
       "video": "/media/community-video-uploads/gan-shinryo-navi-guide.mp4",
       "hidePreview": true,
       "description": "がん薬物療法の学習用アプリです。日本（講演スライドとガイドライン）・アメリカ（NCI PDQ）・ヨーロッパ（NICE）の現状をがん種・病期ごとに整理し、国立がん研究センター中央病院のレジメン表（258件）、薬剤辞典（223件）、分子標的薬・抗体薬物複合体（ADC）、irAE、ICANS、がん遺伝子検査・がんゲノム医療・遺伝性腫瘍まで、情報源つきで横断して学べます。"
+    },
+    {
+      "slug": "kanja-taiou-navi",
+      "title": "患者対応ナビ",
+      "category": "医療面接・コミュニケーション",
+      "url": "https://kanja-taiou-navi.netlify.app",
+      "video": "/media/community-video-uploads/kanja-taiou-navi-guide.mp4",
+      "description": "医療面接・病状説明や、怒り・不安を抱えた患者さんへの対応など、患者対応の技法を学ぶアプリです。「医療面接：基礎編」「NLP（神経言語プログラミング・催眠言語）」「アサーション」「精神科問診（MAPSO問診）」「緩和ケア」「ACP（アドバンス・ケア・プランニング）」の6章・61項目で、解釈モデル、NURSE、DESC法、悪い知らせの伝え方（SHARE）などを、明日の診療でそのまま使える言い回しとともにまとめています。各章の最後には振り返りチェックと「AIと模擬医療面接」があり、場面を選ぶだけでChatGPT・Gemini・Claude用のプロンプトを自動で作成。AIが患者役・指導医役を務め、発言ごとに🟢（良い点と理由）・🟡（言い直しの例）で指導します。声で話して練習することもできます。入力内容は保存・送信されません。"
     }
   ]
 }
