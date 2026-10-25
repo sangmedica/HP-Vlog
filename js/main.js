@@ -464,7 +464,7 @@
     );
   }
 
-  /* ---------- News section on homepage (最新20件) ---------- */
+  /* ---------- News section on homepage (最新50件) ---------- */
   var newsListEl = document.getElementById('news-list');
   if (newsListEl) {
     var NEWS_CATEGORY_PALETTE = [
@@ -495,7 +495,7 @@
         var items = (data.items || [])
           .slice()
           .sort(function (a, b) { return b.date.localeCompare(a.date); })
-          .slice(0, 20);
+          .slice(0, 50);
 
         if (items.length === 0) {
           newsListEl.innerHTML = '<p class="blog-empty">近日公開予定です。</p>';
