@@ -105,6 +105,47 @@
     });
   }
 
+  /* ---------- Image lightbox (representative page) ---------- */
+  var lightboxEl = document.getElementById('lightbox');
+  if (lightboxEl) {
+    var lightboxImage = document.getElementById('lightbox-image');
+    var lightboxOpenLink = document.getElementById('lightbox-open');
+    var lightboxLastFocused = null;
+
+    function openLightbox(trigger) {
+      var thumb = trigger.querySelector('img');
+      lightboxImage.setAttribute('src', trigger.getAttribute('href'));
+      lightboxImage.setAttribute('alt', thumb ? (thumb.getAttribute('alt') || '') : '');
+      lightboxOpenLink.setAttribute('href', trigger.getAttribute('href'));
+      lightboxLastFocused = trigger;
+      lightboxEl.hidden = false;
+      document.body.style.overflow = 'hidden';
+      lightboxEl.querySelector('.lightbox-close').focus();
+    }
+
+    function closeLightbox() {
+      lightboxEl.hidden = true;
+      document.body.style.overflow = '';
+      lightboxImage.setAttribute('src', '');
+      if (lightboxLastFocused) lightboxLastFocused.focus();
+    }
+
+    document.querySelectorAll('[data-lightbox]').forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        openLightbox(trigger);
+      });
+    });
+
+    lightboxEl.querySelectorAll('[data-lightbox-close]').forEach(function (el) {
+      el.addEventListener('click', closeLightbox);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lightboxEl.hidden) closeLightbox();
+    });
+  }
+
   /* ---------- App description modal (community page) ---------- */
   var appDescModal = document.getElementById('app-desc-modal');
   if (appDescModal) {

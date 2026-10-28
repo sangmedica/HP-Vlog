@@ -80,7 +80,23 @@
       'rep-qual5': '臨床研修指導医',
       'rep-qual6': '日本医師会認定産業医',
       'rep-cta-text': '医療教育・医療コンサルティングに関するご相談は、SANGMEDICA株式会社までお気軽にお問い合わせください。',
-      'rep-cta-btn': 'お問い合わせはこちら'
+      'rep-cta-btn': 'お問い合わせはこちら',
+
+      'rep-vn-title': 'ベトナムでの診療',
+      'rep-vn-lead': 'ハノイの <a href="https://t-matsuoka.com/en/" class="rep-vn-textlink" target="_blank" rel="noopener noreferrer">T・Matsuoka Medical Center</a> に勤務し、消化管内視鏡医として、健診から症状のある方まで幅広く内視鏡検査を担当しています。また、総合診療医として、体調の不安など患者様のさまざまなお悩みに寄り添う診療を行っています。',
+      'rep-vn-lead2': 'さらに、AIを積極的に取り入れた「<a href="https://nura.vn" class="rep-vn-textlink" target="_blank" rel="noopener noreferrer">NURA</a>」事業にも参画しています。ホーチミンのNURAでの診療も始めました。',
+      'rep-vn-cap1': '内視鏡検査の現場',
+      'rep-vn-cap2': '検査画像の確認',
+      'rep-vn-cap3': '診察・ご説明',
+      'rep-vn-alt1': 'ハノイの医療センターでの内視鏡検査の様子',
+      'rep-vn-alt2': '内視鏡の検査画像をスタッフと確認している様子',
+      'rep-vn-alt3': '患者さんに検査結果を説明している様子',
+      'rep-vn-ads-title': 'T・Matsuoka Medical Center のご案内',
+      'rep-vn-ads-note': '画像をクリックすると拡大して表示します',
+      'rep-vn-ad1-alt': 'ベトナムで暮らす日本人の健康を、日本人医師がサポート（診療案内）',
+      'rep-vn-ad2-alt': 'ベトナムで受けられる日本基準の消化器医療（診療案内）',
+      'rep-vn-zoom': '拡大',
+      'rep-vn-open': '元の画像を開く'
     },
 
     en: {
@@ -158,7 +174,23 @@
       'rep-qual5': 'Certified Clinical Training Supervisor',
       'rep-qual6': 'Japan Medical Association Certified Occupational Health Physician',
       'rep-cta-text': 'For inquiries about medical education or consulting, please feel free to contact SANGMEDICA Inc.',
-      'rep-cta-btn': 'Contact Us'
+      'rep-cta-btn': 'Contact Us',
+
+      'rep-vn-title': 'Practicing in Vietnam',
+      'rep-vn-lead': 'I work at <a href="https://t-matsuoka.com/en/" class="rep-vn-textlink" target="_blank" rel="noopener noreferrer">T·Matsuoka Medical Center</a> in Hanoi. As a gastrointestinal endoscopist, I perform endoscopic examinations for a wide range of patients, from routine health checkups to those with symptoms. As a general medicine physician, I provide care that listens to the many different concerns patients bring.',
+      'rep-vn-lead2': 'I am also involved in the <a href="https://nura.vn" class="rep-vn-textlink" target="_blank" rel="noopener noreferrer">NURA</a> business, which actively incorporates AI. I have now started seeing patients at NURA in Ho Chi Minh City as well.',
+      'rep-vn-cap1': 'Endoscopy in progress',
+      'rep-vn-cap2': 'Reviewing examination images',
+      'rep-vn-cap3': 'Consultation',
+      'rep-vn-alt1': 'An endoscopy examination at a medical center in Hanoi',
+      'rep-vn-alt2': 'Reviewing endoscopic images with a staff member',
+      'rep-vn-alt3': 'Explaining examination results to a patient',
+      'rep-vn-ads-title': 'About T·Matsuoka Medical Center',
+      'rep-vn-ads-note': 'Click an image to enlarge it. (The advertisements are in Japanese.)',
+      'rep-vn-ad1-alt': 'Advertisement: Japanese physicians supporting the health of Japanese people living in Vietnam',
+      'rep-vn-ad2-alt': 'Advertisement: Japan-standard gastroenterology care available in Vietnam',
+      'rep-vn-zoom': 'Enlarge',
+      'rep-vn-open': 'Open original image'
     },
 
     vi: {
@@ -236,7 +268,23 @@
       'rep-qual5': 'Bác sĩ hướng dẫn đào tạo lâm sàng được chứng nhận',
       'rep-qual6': 'Bác sĩ y học lao động được Hiệp hội Y khoa Nhật Bản chứng nhận',
       'rep-cta-text': 'Nếu có bất kỳ thắc mắc nào về đào tạo y khoa hoặc tư vấn y tế, xin vui lòng liên hệ với Công ty SANGMEDICA.',
-      'rep-cta-btn': 'Liên hệ ngay'
+      'rep-cta-btn': 'Liên hệ ngay',
+
+      'rep-vn-title': 'Hành nghề tại Việt Nam',
+      'rep-vn-lead': 'Tôi đang làm việc tại <a href="https://t-matsuoka.com/en/" class="rep-vn-textlink" target="_blank" rel="noopener noreferrer">T·Matsuoka Medical Center</a> ở Hà Nội. Với vai trò bác sĩ nội soi tiêu hóa, tôi thực hiện nội soi cho nhiều đối tượng, từ khám sức khỏe định kỳ đến người đã có triệu chứng. Với vai trò bác sĩ khám tổng quát, tôi thăm khám và đồng hành cùng bệnh nhân trước nhiều nỗi lo khác nhau về sức khỏe.',
+      'rep-vn-lead2': 'Tôi cũng tham gia dự án <a href="https://nura.vn" class="rep-vn-textlink" target="_blank" rel="noopener noreferrer">NURA</a>, một mô hình tích cực ứng dụng AI. Tôi cũng đã bắt đầu khám bệnh tại NURA ở thành phố Hồ Chí Minh.',
+      'rep-vn-cap1': 'Thực hiện nội soi',
+      'rep-vn-cap2': 'Xem lại hình ảnh nội soi',
+      'rep-vn-cap3': 'Khám và giải thích',
+      'rep-vn-alt1': 'Buổi nội soi tại trung tâm y tế ở Hà Nội',
+      'rep-vn-alt2': 'Xem lại hình ảnh nội soi cùng nhân viên',
+      'rep-vn-alt3': 'Giải thích kết quả thăm khám cho bệnh nhân',
+      'rep-vn-ads-title': 'Giới thiệu T·Matsuoka Medical Center',
+      'rep-vn-ads-note': 'Bấm vào hình để phóng to. (Hình quảng cáo bằng tiếng Nhật.)',
+      'rep-vn-ad1-alt': 'Quảng cáo: Bác sĩ người Nhật đồng hành chăm sóc sức khỏe cho người Nhật sống tại Việt Nam',
+      'rep-vn-ad2-alt': 'Quảng cáo: Dịch vụ tiêu hóa theo tiêu chuẩn Nhật Bản tại Việt Nam',
+      'rep-vn-zoom': 'Phóng to',
+      'rep-vn-open': 'Mở ảnh gốc'
     }
   };
 
