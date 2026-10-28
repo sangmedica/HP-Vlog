@@ -362,6 +362,83 @@ body {
   text-align: right;
 }
 
+/* ---------- Access counter (閲覧数 / 訪問者数) ---------- */
+.site-counter {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--header-h) + 8px);
+  right: max(24px, calc((100vw - var(--container-w)) / 2 + 24px));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.site-counter[hidden] { display: none; }
+.sc-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.sc-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.75), 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+.sc-digits {
+  display: flex;
+  gap: 2.5px;
+  perspective: 240px;
+}
+.sc-digits i {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 21px;
+  border-radius: 2.5px;
+  font-family: var(--font-en);
+  font-size: 13.5px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #d9b779;
+  background: linear-gradient(#303030 50%, #222 50%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.sc-digits i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.65);
+}
+.sc-digits i.is-off { color: rgba(217, 183, 121, 0.35); }
+.sc-digits.is-flipping i {
+  animation: scFlip 0.6s cubic-bezier(0.3, 0.7, 0.3, 1) both;
+  animation-delay: calc(var(--i) * 70ms);
+}
+@keyframes scFlip {
+  from { transform: rotateX(-90deg); opacity: 0; }
+  to { transform: rotateX(0); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sc-digits.is-flipping i { animation: none; }
+}
+@media (max-width: 720px) {
+  .site-counter {
+    right: 16px;
+    transform: scale(0.86);
+    transform-origin: top right;
+  }
+}
+
 .hero-actions {
   display: flex;
   gap: 16px;

@@ -17,6 +17,62 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  /* ---------- Access counter (閲覧数 / 訪問者数) ---------- */
+  // 閲覧数   : どのページでも、開くたびに +1（サイト全体）
+  // 訪問者数 : このブラウザで初めて開いたときだけ +1（以後は数えない）
+  // 表示は #site-counter があるページ(トップ)のみ。
+  // ?nocount=1 を付けて一度開くと、そのブラウザは以後カウントされない（?nocount=0 で解除）。
+  (function () {
+    var ENDPOINT = '/.netlify/functions/counter';
+    var VISITOR_KEY = 'sangmedica_visitor';
+    var NOCOUNT_KEY = 'sangmedica_nocount';
+    var counterEl = document.getElementById('site-counter');
+
+    function storageGet(key) { try { return window.localStorage.getItem(key); } catch (e) { return null; } }
+    function storageSet(key, value) { try { window.localStorage.setItem(key, value); return true; } catch (e) { return false; } }
+    function storageRemove(key) { try { window.localStorage.removeItem(key); } catch (e) { /* 無視 */ } }
+
+    var nocountParam = new URLSearchParams(window.location.search).get('nocount');
+    if (nocountParam === '1') storageSet(NOCOUNT_KEY, '1');
+    if (nocountParam === '0') storageRemove(NOCOUNT_KEY);
+
+    var isBot = !!navigator.webdriver || /bot|crawl|spider|slurp|headless|lighthouse/i.test(navigator.userAgent || '');
+    var shouldCount = !isBot && storageGet(NOCOUNT_KEY) !== '1';
+
+    // localStorage が使えない環境(プライベートモード等)では同一ブラウザを判別できないため、訪問者数には加算しない
+    var newVisitor = shouldCount && storageGet(VISITOR_KEY) === null && storageSet(VISITOR_KEY, String(Date.now()));
+
+    function renderFlip(el, value) {
+      var s = String(Math.max(0, Math.floor(Number(value) || 0)));
+      while (s.length < 6) s = '0' + s;
+      var firstSig = s.search(/[1-9]/);
+      if (firstSig === -1) firstSig = s.length - 1;
+      el.innerHTML = s.split('').map(function (d, i) {
+        return '<i' + (i < firstSig ? ' class="is-off"' : '') + ' style="--i:' + i + '" aria-hidden="true">' + d + '</i>';
+      }).join('');
+      el.setAttribute('aria-label', String(Math.floor(Number(value) || 0)));
+      el.classList.remove('is-flipping');
+      void el.offsetWidth;
+      el.classList.add('is-flipping');
+    }
+
+    var request = shouldCount
+      ? fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ newVisitor: newVisitor }) })
+      : (counterEl ? fetch(ENDPOINT) : null);
+
+    if (!request) return;
+
+    request
+      .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
+      .then(function (data) {
+        if (!counterEl || typeof data.views !== 'number' || typeof data.visitors !== 'number') return;
+        renderFlip(document.getElementById('counter-views'), data.views);
+        renderFlip(document.getElementById('counter-visitors'), data.visitors);
+        counterEl.hidden = false;
+      })
+      .catch(function () { /* カウンターが取得できなくてもページ表示は継続する */ });
+  })();
+
   /* ---------- QR code modal ---------- */
   var qrModal = document.getElementById('qr-modal');
   if (qrModal) {

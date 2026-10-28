@@ -8,6 +8,8 @@
     ja: {
       'hero-title': '学びとキャリアを支える',
       'hero-lead': 'SANGMEDICA株式会社は現場で培った知見を、学びと挑戦へ。',
+      'counter-views': '閲覧数',
+      'counter-visitors': '訪問者数',
 
       'about-title': '会社概要',
       'about-statement': '医師の「学び」と「キャリア」に、新たな選択肢を。',
@@ -102,6 +104,8 @@
     en: {
       'hero-title': 'Supporting Learning and Careers',
       'hero-lead': 'SANGMEDICA Inc. turns real clinical experience into learning and new challenges.',
+      'counter-views': 'Page views',
+      'counter-visitors': 'Visitors',
 
       'about-title': 'Company Overview',
       'about-statement': "New choices for physicians' learning and career paths.",
@@ -196,6 +200,8 @@
     vi: {
       'hero-title': 'Đồng hành cùng học tập và sự nghiệp',
       'hero-lead': 'SANGMEDICA chuyển hóa kinh nghiệm thực tiễn lâm sàng thành cơ hội học tập và thử thách mới.',
+      'counter-views': 'Lượt xem',
+      'counter-visitors': 'Khách truy cập',
 
       'about-title': 'Giới thiệu công ty',
       'about-statement': 'Mang đến lựa chọn mới cho việc học tập và sự nghiệp của bác sĩ.',
