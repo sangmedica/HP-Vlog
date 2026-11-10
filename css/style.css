@@ -1850,6 +1850,273 @@ body {
 .rep-timeline-text { color: var(--color-dark); }
 .rep-timeline--current li { color: var(--color-gray-700); }
 
+/* ---------- Representative page: Qualifications & Achievements ---------- */
+.rep-record {
+  padding: 96px 0 104px;
+  background: var(--color-off-white);
+  border-top: 1px solid var(--color-gray-200);
+}
+.rep-record-inner { max-width: 920px; margin: 0 auto; }
+.rep-rec-block + .rep-rec-block { margin-top: 96px; }
+.rep-rec-head { margin-bottom: 36px; }
+.rep-rec-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: var(--color-dark);
+}
+.rep-rec-group + .rep-rec-group { margin-top: 64px; }
+.rep-rec-sub {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding-left: 14px;
+  border-left: 3px solid var(--color-accent);
+  margin-bottom: 22px;
+  color: var(--color-dark);
+}
+
+/* 保有資格 */
+.rep-lic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.rep-lic-group {
+  padding: 24px 28px 14px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+}
+.rep-lic-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-gray-500);
+  margin-bottom: 8px;
+}
+.rep-lic-list li {
+  position: relative;
+  list-style: none;
+  padding: 14px 0 14px 22px;
+  border-top: 1px solid var(--color-gray-200);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-dark);
+}
+.rep-lic-list li:first-child { border-top: 0; }
+.rep-lic-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 1.45em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.rep-lic-list small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--color-gray-500);
+}
+
+/* 認定・修了プログラム */
+.rep-ach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.rep-ach-card {
+  list-style: none;
+  padding: 18px 20px 16px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+}
+.rep-ach-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.rep-ach-name {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-dark);
+}
+.rep-ach-tag {
+  flex-shrink: 0;
+  padding: 1px 10px;
+  border: 1px solid var(--color-accent);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: #8a6b38;
+  white-space: nowrap;
+}
+.rep-ach-full {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--color-gray-500);
+}
+
+/* 論文 */
+.rep-pubs { display: flex; flex-direction: column; gap: 14px; }
+.rep-pub {
+  display: block;
+  padding: 22px 26px 20px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.rep-pub:hover,
+.rep-pub:focus-visible {
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.rep-pub--lead { border-left: 3px solid var(--color-accent); }
+.rep-pub-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 10px;
+}
+.rep-pub-badge {
+  padding: 2px 12px;
+  border-radius: 100px;
+  background: var(--color-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--color-white);
+}
+.rep-pub-badge--co { background: var(--color-gray-700); }
+.rep-pub-type { font-size: 0.76rem; color: var(--color-gray-500); }
+.rep-pub-type:empty { display: none; }
+.rep-pub-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--color-dark);
+  transition: color 0.25s ease;
+}
+.rep-pub:hover .rep-pub-title { color: #8a6b38; }
+.rep-pub-trans,
+.rep-pub-summary {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  line-height: 1.85;
+  color: var(--color-gray-700);
+}
+.rep-pub-trans:empty { display: none; }
+.rep-pub-authors {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-gray-500);
+}
+.rep-pub-authors strong { color: var(--color-dark); font-weight: 700; }
+.rep-pub-cite {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--color-gray-700);
+}
+.rep-pub-link {
+  display: inline-block;
+  margin-top: 14px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--color-accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--color-dark);
+}
+.rep-pub-link::after { content: " \2197"; }
+
+/* 執筆・監修 */
+.rep-works {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 22px;
+}
+.rep-work {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.rep-work-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rep-work-media--book {
+  min-height: 300px;
+  padding: 28px 20px;
+  background: linear-gradient(135deg, #efe7d8, #f7f2e8 55%, #e9dfcb);
+}
+.rep-work-media--book img {
+  display: block;
+  width: auto;
+  height: 247px;
+  border-radius: 2px;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.26), 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.rep-work-media--film { aspect-ratio: 16 / 9; background: #0b1b33; }
+.rep-work-media--film img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rep-work-body { padding: 20px 24px 24px; }
+.rep-work-role {
+  margin-bottom: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #8a6b38;
+}
+.rep-work-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-dark);
+}
+.rep-work-meta {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--color-gray-500);
+}
+.rep-work-note {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--color-gray-700);
+}
+
+@media (max-width: 720px) {
+  .rep-record { padding: 64px 0 72px; }
+  .rep-rec-block + .rep-rec-block { margin-top: 72px; }
+  .rep-rec-head { margin-bottom: 28px; }
+  .rep-rec-group + .rep-rec-group { margin-top: 48px; }
+  .rep-lic-group { padding: 20px 22px 10px; }
+  .rep-ach-grid { grid-template-columns: 1fr; }
+  .rep-pub { padding: 20px 20px 18px; }
+  .rep-works { grid-template-columns: 1fr; }
+}
+
 /* ---------- Representative page: In Vietnam ---------- */
 .rep-vietnam {
   position: relative;
@@ -1870,7 +2137,8 @@ body {
 .rep-vietnam > .container { position: relative; }
 
 .rep-vn-head { max-width: 700px; margin-bottom: 56px; }
-.rep-vn-eyebrow {
+.rep-vn-eyebrow,
+.rep-rec-eyebrow {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1880,7 +2148,8 @@ body {
   color: var(--color-accent);
   margin-bottom: 18px;
 }
-.rep-vn-eyebrow::before {
+.rep-vn-eyebrow::before,
+.rep-rec-eyebrow::before {
   content: "";
   width: 36px;
   height: 1px;
