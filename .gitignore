@@ -1,3 +1,13 @@
 .DS_Store
 **/.DS_Store
 .claude/
+
+# SNS 自動投稿（instagram-auto）の認証情報・投稿素材
+instagram-auto/.env
+instagram-auto/.env.bak
+instagram-auto/*.log
+instagram-auto/photos/*
+!instagram-auto/photos/.gitkeep
+instagram-auto/ig-assets/
+echo-navi/.secrets/
+echo-navi/worker/node_modules/
